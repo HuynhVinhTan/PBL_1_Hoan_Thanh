@@ -29,38 +29,6 @@ namespace PBL2_BookStoreManagement.DAL
         private static string filePath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName + @"\PBL2-BookStoreManagement\Data\Books.csv";
         #endregion
 
-        #region Book_Cart
-        public List<Book> Cart { get; set; } = new List<Book>();
-        public void AddToCart(Book book)
-        {
-            Cart.Add(book);
-        }
-        public void RemoveFromCart(Book book)
-        {
-            Cart.Remove(book);
-        }
-        public void ClearCart()
-        {
-            Cart.Clear();
-        }
-        public double GetTotalPrice()
-        {
-            return Cart.Sum(book => book.book_price);
-        }
-        public int GetTotalQuantity()
-        {
-            return Cart.Sum(book => book.book_quantity);
-        }
-        public List<Book> GetCart()
-        {
-            return Cart;
-        }
-        public void SetCart(List<Book> books)
-        {
-            Cart = books;
-        }
-        #endregion
-
         #region Methods
         public List<Book> LoadBooks()
         {
