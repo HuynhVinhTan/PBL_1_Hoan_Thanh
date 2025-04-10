@@ -36,6 +36,7 @@ namespace PBL2_BookStoreManagement.DAL
             List<string[]> data = DataProvider.Instance.ReadCsv(filePath);
             foreach (var row in data)
             {
+                if (int.Parse(row[4]) > 0) continue;
                 if (row.Length == 6)
                 {
                     books.Add(new Book(row[0], row[1], row[2], row[3],int.Parse(row[4]), double.Parse(row[5])));
