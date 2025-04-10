@@ -51,8 +51,6 @@ namespace PBL2_BookStoreManagement.DAL
                 Cart.Add(new Book(book.book_ID, book.book_name, book.book_author, book.book_genre, 1, book.book_price));
             }
         }
-
-
         public void UpdateCart(string bookId, string status)
         {
             var bookincart = Cart.FirstOrDefault(b => b.book_ID == bookId);
@@ -74,7 +72,6 @@ namespace PBL2_BookStoreManagement.DAL
                     break;
             }
         }
-
         public void RemoveFromCart(string bookId)
         {
             var bookToRemove = Cart.FirstOrDefault(b => b.book_ID == bookId);
@@ -88,7 +85,6 @@ namespace PBL2_BookStoreManagement.DAL
         {
             return Cart.Sum(book => Math.Round(book.book_price, 2));  // Tính tổng giá trị dựa trên số lượng
         }
-
         public List<Book> GetCart()
         {
             return Cart;

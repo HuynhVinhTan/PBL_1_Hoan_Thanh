@@ -193,5 +193,10 @@ namespace PBL2_BookStoreManagement.View
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            BUS_Book.Instance.Updated_Book();
+        }
     }
 }

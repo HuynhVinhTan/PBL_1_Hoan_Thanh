@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
+
 
 namespace BookStoreApp.DAL
 {
@@ -41,8 +40,7 @@ namespace BookStoreApp.DAL
             }
             return data;
         }
-
-        public void WriteCsv(string filePath, List<string[]> data)
+        public void Update_CSV(string filePath, List<string[]> data)
         {
             using (StreamWriter sw = new StreamWriter(filePath))
             {
@@ -52,7 +50,17 @@ namespace BookStoreApp.DAL
                 }
             }
         }
-        
+        public void Write_CSV(string filePath, List<string[]> data)
+        {
+            using (StreamWriter sw = new StreamWriter(filePath, append: true))
+            {
+                foreach (var line in data)
+                {
+                    sw.WriteLine(string.Join(",", line));
+                }
+            }
+        }
+
         public void Clear_Data(string filePath)
         {
             File.WriteAllText(filePath, string.Empty);
