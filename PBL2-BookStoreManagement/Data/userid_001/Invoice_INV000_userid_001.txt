@@ -1,0 +1,16 @@
+========== BOOK STORE INVOICE ==========
+Invoice ID   : INV000
+Customer ID  : userid_001
+Customer Name: Vo Nhu Chien
+Date Created : 11/04/2025
+----------------------------------------
+Item                                             Quantity           Price
+Artificial Intelligence A Modern Approach          1               $92.50
+The Clean Coder                                    1               $33.50
+Programming Pearls                                 1               $29.95
+Domain-Driven Design                               1               $55.90
+Eloquent JavaScript                                1               $25.99
+Clean Code                                         1               $35.99
+----------------------------------------
+                                    Total: $273.83
+============= THANK YOU! ===============

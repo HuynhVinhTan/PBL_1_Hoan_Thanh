@@ -1,10 +1,25 @@
-B001,Clean Code,Robert C. Martin,Programming,0,35.99
-B002,The Pragmatic Programmer,Andrew Hunt,Programming,15,40.5
-B003,Introduction to Algorithms,Thomas H. Cormen,Computer Science,8,79.99
-B004,Design Patterns,Erich Gamma,Software Engineering,12,45
-B005,Refactoring,Martin Fowler,Programming,20,47.99
-B006,The Mythical Man-Month,Frederick P. Brooks Jr.,Software Engineering,5,34.99
-B007,Code Complete,Steve McConnell,Programming,18,50.99
-B008,You Don't Know JS,Kyle Simpson,JavaScript,25,29.99
-B009,Eloquent JavaScript,Marijn Haverbeke,JavaScript,30,25.99
-B010,Deep Learning,Ian Goodfellow,Artificial Intelligence,7,89.99
+B001,Clean Code,Robert C Martin,Programming,1,35.99
+B002,The Pragmatic Programmer,Andrew Hunt,Programming,0,40.5
+B003,Introduction to Algorithms,Thomas H Cormen,Computer Science,0,79.99
+B004,Design Patterns,Erich Gamma,Software Engineering,0,45
+B005,Refactoring,Martin Fowler,Programming,0,47.99
+B006,The Mythical Man-Month,Frederick P Brooks Jr,Software Engineering,0,34.99
+B007,Code Complete,Steve McConnell,Programming,0,50.99
+B008,You Dont Know JS,Kyle Simpson,JavaScript,9,29.99
+B009,Eloquent JavaScript,Marijn Haverbeke,JavaScript,20,25.99
+B010,Deep Learning,Ian Goodfellow,Artificial Intelligence,2,89.99
+B011,Artificial Intelligence A Modern Approach,Stuart Russell,Artificial Intelligence,3,92.5
+B012,Structure and Interpretation of Computer Programs,Harold Abelson,Computer Science,6,64.99
+B013,The Clean Coder,Robert C Martin,Programming,5,33.5
+B014,Working Effectively with Legacy Code,Michael Feathers,Software Engineering,2,38.75
+B015,Domain-Driven Design,Eric Evans,Software Engineering,0,55.9
+B016,Introduction to the Theory of Computation,Michael Sipser,Computer Science,2,72
+B017,Programming Pearls,Jon Bentley,Programming,1,29.95
+B018,Cracking the Coding Interview,Gayle Laakmann McDowell,Career,10,39.99
+B019,Head First Design Patterns,Eric Freeman,Software Engineering,5,49.95
+B020,JavaScript The Good Parts,Douglas Crockford,JavaScript,8,27.5
+B021,Patterns of Enterprise Application Architecture,Martin Fowler,Software Engineering,2,58
+B022,Introduction to Machine Learning,Ethem Alpaydin,Artificial Intelligence,5,48.9
+B023,Compilers Principles Techniques and Tools,Alfred Aho,Computer Science,3,84.99
+B024,Refactoring UI,Adam Wathan,UIUX Design,6,39
+B025,Clean Architecture,Robert C Martin,Software Engineering,8,44

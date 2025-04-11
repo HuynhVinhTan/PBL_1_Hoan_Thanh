@@ -40,19 +40,12 @@ namespace BookStoreApp.DAL
             }
             return data;
         }
-        public void Update_CSV(string filePath, List<string[]> data)
-        {
-            using (StreamWriter sw = new StreamWriter(filePath))
-            {
-                foreach (var line in data)
-                {
-                    sw.WriteLine(string.Join(",", line));
-                }
-            }
-        }
         public void Write_CSV(string filePath, List<string[]> data)
         {
-            using (StreamWriter sw = new StreamWriter(filePath, append: true))
+            // Đảm bảo folder tồn tại
+            Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+
+            using (StreamWriter sw = new StreamWriter(filePath))
             {
                 foreach (var line in data)
                 {

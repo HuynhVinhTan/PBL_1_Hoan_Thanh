@@ -8,8 +8,8 @@ namespace PBL2_BookStoreManagement.View
     {
     public partial class fCustomer : Form
     {
-        string userID = "001";  // ID giả lập
-        string userName = "Chien";
+        private string userID = "userid_001";  // ID giả lập
+        private string userName = "Vo Nhu Chien";
         public fCustomer()
         {
             InitializeComponent();

@@ -2,18 +2,14 @@
 using PBL2_BookStoreManagement.DTO;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Drawing;
-using System.Linq;
-using System.Net;
 using System.Windows.Forms;
+
 
 namespace PBL2_BookStoreManagement.View
 {
     public partial class fCus_Product : Form
     {
-        
-
         public fCus_Product()
         {
             InitializeComponent();
@@ -25,7 +21,7 @@ namespace PBL2_BookStoreManagement.View
         {
             List<Book> books = BUS_Book.Instance.GetAllBooks();
             dtgv_Books.DataSource = books;
-     
+
             if (dtgv_Books.Columns["AddToCart"] == null)
             {
                 DataGridViewButtonColumn btnAddToCart = new DataGridViewButtonColumn();
@@ -35,6 +31,12 @@ namespace PBL2_BookStoreManagement.View
                 btnAddToCart.Name = "AddToCart";
                 dtgv_Books.Columns.Add(btnAddToCart);
             }
+
+            // Remove the incorrect line causing the error
+            // dtgv_Books_CellContentClick -= dtgv_Books_CellContentClick;
+
+            // Ensure the event handler is only added once
+            dtgv_Books.CellContentClick -= dtgv_Books_CellContentClick;
             dtgv_Books.CellContentClick += dtgv_Books_CellContentClick;
         }
 
@@ -45,7 +47,7 @@ namespace PBL2_BookStoreManagement.View
                 Book selectedBook = dtgv_Books.Rows[e.RowIndex].DataBoundItem as Book;
                 if (selectedBook != null)
                 {
-                    if (BUS_Cart.Instance.AddToCart(selectedBook) == false) 
+                    if (BUS_Cart.Instance.AddToCart(selectedBook) == false)
                     {
                         MessageBox.Show("Out Of Stock", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -58,7 +60,7 @@ namespace PBL2_BookStoreManagement.View
             if (e.RowIndex < 0 || e.ColumnIndex < 0) return; // 🔥 Fix lỗi Index -1
             if (e.RowIndex >= 0)
             {
-                Book selectedBook = dtgv_Cart.Rows[e.RowIndex].DataBoundItem as Book;
+                Cart selectedBook = dtgv_Cart.Rows[e.RowIndex].DataBoundItem as Cart;
                 if (selectedBook == null) return;
 
                 if (e.ColumnIndex == dtgv_Cart.Columns["Increase"].Index)
@@ -76,7 +78,6 @@ namespace PBL2_BookStoreManagement.View
                 LoadCartData(); // Cập nhật giỏ hàng
             }
         }
-
         private void LoadCartData()
         {
             var cart = BUS_Cart.Instance.GetCart();
@@ -84,6 +85,22 @@ namespace PBL2_BookStoreManagement.View
             dtgv_Cart.DataSource = cart;
             Customize_dtgv_Cart();
             lbl_totalcost.Text = BUS_Cart.Instance.GetTotalPrice().ToString();
+        }
+        private void confirm_Cart(object sender, EventArgs e)
+        {
+            if (BUS_Book.Instance.Updated_Book())
+            {
+                MessageBox.Show("Purchase successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string invoicetext = BUS_Invoice.Instance.create_Invoice_Info();
+                MessageBox.Show(invoicetext, "Hóa đơn của bạn");
+                BUS_Cart.Instance.ClearCart();
+                LoadBookData();
+                LoadCartData();
+            }
+            else
+            {
+                MessageBox.Show("No items in cart", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void Customize_dtgv_Cart()
         {
@@ -110,8 +127,8 @@ namespace PBL2_BookStoreManagement.View
             // Cố định thứ tự hiển thị cột (tùy chỉnh theo ý bạn)
             dtgv_Cart.Columns["book_ID"].DisplayIndex = 0;
             dtgv_Cart.Columns["book_name"].DisplayIndex = 1;
-            dtgv_Cart.Columns["book_price"].DisplayIndex = 2;
-            dtgv_Cart.Columns["book_quantity"].DisplayIndex = 3;
+            dtgv_Cart.Columns["book_quantity"].DisplayIndex = 2;
+            dtgv_Cart.Columns["book_price"].DisplayIndex = 3;
             dtgv_Cart.Columns["Increase"].DisplayIndex = 4;
             dtgv_Cart.Columns["Decrease"].DisplayIndex = 5;
             dtgv_Cart.Columns["Remove"].DisplayIndex = 6;
@@ -187,16 +204,8 @@ namespace PBL2_BookStoreManagement.View
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgv.RowHeadersVisible = false;
             dgv.AllowUserToResizeRows = false;
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            BUS_Book.Instance.Updated_Book();
-        }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using PBL2_BookStoreManagement.DTO;
 using System.Collections.Generic;
-using System.Linq;
 using System.IO;
 using BookStoreApp.DAL;
+using System.Linq;
 
 namespace PBL2_BookStoreManagement.DAL
 {
@@ -57,16 +57,24 @@ namespace PBL2_BookStoreManagement.DAL
             }
             return books;
         }
-        public void Updated_Book(List<Book> books) //Cập nhật lại kho sách
+        public void Updated_Book(List<Cart> books) //Cập nhật lại kho sách
         {
             //lay 1 list trong file + 1 list trong cart => cập nhật => rồi ghi lại trên file
-
-            List<string[]> data = new List<string[]>();
+            List<Book> booksinstore = GetBooks();
             foreach (var book in books)
+            {
+                var bookinstore1 = booksinstore.FirstOrDefault(b => b.book_ID == book.book_ID);
+                if (bookinstore1 != null)
+                {
+                    bookinstore1.book_quantity -= book.book_quantity;
+                }
+            }
+            List<string[]> data = new List<string[]>();
+            foreach (var book in booksinstore)
             {
                 data.Add(new string[] { book.book_ID, book.book_name, book.book_author, book.book_genre, book.book_quantity.ToString(), book.book_price.ToString() });
             }
-            DataProvider.Instance.Update_CSV(filePath, data);
+            DataProvider.Instance.Write_CSV(filePath, data);
         }
         #endregion
 

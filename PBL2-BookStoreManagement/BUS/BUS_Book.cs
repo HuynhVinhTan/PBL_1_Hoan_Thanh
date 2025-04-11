@@ -38,20 +38,20 @@ namespace PBL2_BookStoreManagement.BUS
                                       b.book_genre.ToLower().Contains(keyword));
         }
 
-        public void Updated_Book() //cập nhật lại kho sách BUS
+        public bool Updated_Book() //cập nhật lại kho sách BUS
         {
-            if(DAL_Cart.Instance.GetCart().Count == 0) return;
+            if(BUS_Cart.Instance.GetCart().Count == 0) return false;
             List<Book> booksinstore = DAL_Book.Instance.GetBooks();
             foreach (var book in booksinstore)
             {
-                var bookincart = DAL_Cart.Instance.GetCart().FirstOrDefault(b => b.book_ID == book.book_ID);
+                var bookincart = BUS_Cart.Instance.GetCart().FirstOrDefault(b => b.book_ID == book.book_ID);
                 if (bookincart != null)
                 {
                     book.book_quantity -= bookincart.book_quantity;
                 }
             }
-            DAL_Book.Instance.Updated_Book(booksinstore);
-            DAL_Cart.Instance.ClearCart();
+            DAL_Book.Instance.Updated_Book(BUS_Cart.Instance.GetCart());
+            return true;
         }
         #endregion
     }

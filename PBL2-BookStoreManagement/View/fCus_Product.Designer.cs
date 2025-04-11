@@ -74,7 +74,6 @@
             this.label1.Size = new System.Drawing.Size(77, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Total cost:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
             // 
@@ -85,7 +84,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Confirm";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.confirm_Cart);
             // 
             // lbl_totalcost
             // 
@@ -96,7 +95,6 @@
             this.lbl_totalcost.Size = new System.Drawing.Size(16, 17);
             this.lbl_totalcost.TabIndex = 2;
             this.lbl_totalcost.Text = "0";
-            this.lbl_totalcost.Click += new System.EventHandler(this.label1_Click);
             // 
             // fCus_Product
             // 

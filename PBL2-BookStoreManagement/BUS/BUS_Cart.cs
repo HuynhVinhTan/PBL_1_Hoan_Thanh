@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using PBL2_BookStoreManagement.DAL;
 using PBL2_BookStoreManagement.DTO;
@@ -23,82 +24,86 @@ namespace PBL2_BookStoreManagement.BUS
             }
         }
         #endregion
+        private static List<Cart> CartItems = new List<Cart>();
 
         #region method
         //Add To Cart
         public bool AddToCart(Book book)
         {
-            var bookincart = DAL_Cart.Instance.GetCart().FirstOrDefault(b => b.book_ID == book.book_ID);
-            if (bookincart == null) // Nếu sách chưa có trong giỏ
+            var bookincart = CartItems.FirstOrDefault(b => b.book_ID == book.book_ID);
+
+            if (bookincart == null)
             {
-                DAL_Cart.Instance.AddToCart(book);
+                CartItems.Add(new Cart(book.book_ID, book.book_name, 1, book.book_price));
                 return true;
             }
 
-            // Nếu sách đã có trong giỏ, kiểm tra số lượng
-            if (bookincart.book_quantity + 1 > book.book_quantity) // Kiểm tra không vượt quá số lượng trong kho
+            if (bookincart.book_quantity + 1 > book.book_quantity)
             {
-                return false; // Không thể thêm vì vượt quá số lượng
+                return false;
             }
 
-            // Cập nhật giỏ hàng với sách có số lượng mới
-            DAL_Cart.Instance.AddToCart(book);
+            bookincart.book_price += book.book_price;
+            bookincart.book_price = Math.Round(bookincart.book_price, 2);
+            bookincart.book_quantity += 1;
             return true;
         }
 
         //Update Cart
-        public void UpdateCart(string bookId, string status)
+        public bool UpdateCart(string bookId, string status)
         {
             var bookInStore = DAL_Book.Instance.LoadBooks().FirstOrDefault(b => b.book_ID == bookId);
-            if (bookInStore == null) return;
+            if (bookInStore == null) return false;
 
-            var bookInCart = DAL_Cart.Instance.GetCart().FirstOrDefault(b => b.book_ID == bookId);
-            if (bookInCart == null) return;
+            var bookincart = CartItems.FirstOrDefault(b => b.book_ID == bookId);
+            if (bookincart == null) return false;
 
             switch (status)
             {
                 case "Increase":
-                    if (bookInCart.book_quantity + 1 > bookInStore.book_quantity) // Kiểm tra không vượt quá số lượng trong kho
+                    if (bookincart.book_quantity + 1 > bookInStore.book_quantity) // Kiểm tra không vượt quá số lượng trong kho
                     {
-                        return; // Không thể tăng số lượng vì vượt quá số lượng
+                        return false; // Không thể tăng số lượng vì vượt quá số lượng
                     }
-                    DAL_Cart.Instance.UpdateCart(bookId, "Increase");
+                    bookincart.book_price += bookincart.book_price / bookincart.book_quantity;// Tăng giá trị theo số lượng
+                    bookincart.book_price = Math.Round(bookincart.book_price, 2);
+                    bookincart.book_quantity += 1;
                     break;
                 case "Decrease":
-                    if(bookInCart.book_quantity - 1 == 0)
-                    {
-                        DAL_Cart.Instance.RemoveFromCart(bookId);
-                        return; // Nếu số lượng bằng 0 thì xóa khỏi giỏ
+                    if(bookincart.book_quantity - 1 == 0)
+                    { 
+                        CartItems.Remove(bookincart); // Nếu số lượng bằng 0 thì xóa khỏi giỏ
                     }
-                    DAL_Cart.Instance.UpdateCart(bookId, "Decrease");
+                    bookincart.book_price -= bookincart.book_price / bookincart.book_quantity; // Giảm giá trị theo số lượng
+                    bookincart.book_price = Math.Round(bookincart.book_price, 2);
+                    bookincart.book_quantity -= 1;
                     break;
             }
-
+            return true;
         }
 
         //Clear Cart
         public void ClearCart()
         {
-            DAL_Cart.Instance.ClearCart();
+            CartItems.Clear();
         }
 
         //Remove Item From Cart
         public void RemoveFromCart(string bookId)
-        { 
-            DAL_Cart.Instance.RemoveFromCart(bookId);
-            return;
-        }
-
-        //Get Item From Cart
-        public List<Book> GetCart()
         {
-            return DAL_Cart.Instance.GetCart();
+            var bookToRemove = CartItems.FirstOrDefault(b => b.book_ID == bookId);
+            CartItems.Remove(bookToRemove);
+        }
+        //Get Item From Cart
+        public List<Cart> GetCart()
+        {
+            return CartItems;
         }
 
         //Get Price Of Cart
         public double GetTotalPrice()
         {
-            return DAL_Cart.Instance.GetTotalPrice();
+            return CartItems.Sum(cart => Math.Round(cart.book_price, 2));
         }
         #endregion
 
