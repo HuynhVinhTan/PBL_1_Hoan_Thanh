@@ -27,7 +27,7 @@ namespace PBL2_BookStoreManagement.BUS
         #region Book Operations
         public List<Book> GetAllBooks()
         {
-            return DAL_Book.Instance.LoadBooks();
+            return DAL_Book.Instance.GetBooks();
         }
         public List<Book> SearchBooks(string keyword)
         {
@@ -53,6 +53,22 @@ namespace PBL2_BookStoreManagement.BUS
             DAL_Book.Instance.Updated_Book(BUS_Cart.Instance.GetCart());
             return true;
         }
+        public void AddBook(string id, string name, string author, string genre, int quantity, double price)
+        {
+            DAL_Book.Instance.AddBook(id, name, author, genre, quantity, price);
+        }
+
+        public void UpdateBook(Book book, int index)
+        {
+            DAL_Book.Instance.UpdateBook(book, index);
+        }
+
+        public void DeleteBook(int index)
+        {
+            DAL_Book.Instance.DeleteBook(index);
+        }
+
+
         #endregion
     }
 }

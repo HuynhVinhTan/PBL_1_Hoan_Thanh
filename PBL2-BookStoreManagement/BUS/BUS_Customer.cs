@@ -1,4 +1,7 @@
-﻿
+﻿using PBL2_BookStoreManagement.DTO;
+using System.Collections.Generic;
+using PBL2_BookStoreManagement.DAL;
+
 
 namespace PBL2_BookStoreManagement.BUS
 {
@@ -19,8 +22,36 @@ namespace PBL2_BookStoreManagement.BUS
             }
         }
         #endregion
+
         #region Customer Operations
-        
+
+        List<Customer> customers = new List<Customer>();
+        // lấy toàn bộ các dòng dữ liệu
+        public List<Customer> GetAllCustomer()
+        {
+            customers = DAL_Customer.Instance.GetCustomers();
+            return customers;
+        }
+
+        public int CountCustomer()
+        {
+            return DAL_Customer.Instance.CountCustomer();
+        }
+
+        public void DeleteCustomer(int index)
+        {
+            DAL_Customer.Instance.DeleteCustomer(index);
+        }
+
+        public void UpdateCustomer(Customer customer, int index)
+        {
+            DAL_Customer.Instance.UpdateCustomer(customer, index);
+        }
+
+        public void AddCustomer(Customer customer)
+        {
+            DAL_Customer.Instance.AddCustomer(customer);
+        }
         #endregion
 
     }

@@ -46,18 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\BUS_Admin.cs" />
     <Compile Include="BUS\BUS_Book.cs" />
     <Compile Include="BUS\BUS_Cart.cs" />
     <Compile Include="BUS\BUS_Customer.cs" />
     <Compile Include="BUS\BUS_Invoice.cs" />
+    <Compile Include="BUS\Bus_Account.cs" />
     <Compile Include="BUS\Session.cs" />
     <Compile Include="DAL\DAL_Book.cs" />
+    <Compile Include="DAL\DAL_Customer.cs" />
     <Compile Include="DAL\DAL_Invoice.cs" />
     <Compile Include="DAL\DataProvider.cs" />
+    <Compile Include="DTO\Manager.cs" />
     <Compile Include="DTO\Book.cs" />
+    <Compile Include="DTO\BookBase.cs" />
     <Compile Include="DTO\Cart.cs" />
     <Compile Include="DTO\Customer.cs" />
     <Compile Include="DTO\Invoice.cs" />
+    <Compile Include="DTO\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\fAdmin.cs">
@@ -66,11 +72,29 @@
     <Compile Include="View\fAdmin.Designer.cs">
       <DependentUpon>fAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\fAdmin_Book.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\fAdmin_Book.Designer.cs">
+      <DependentUpon>fAdmin_Book.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\fAdmin_Cus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\fAdmin_Cus.Designer.cs">
+      <DependentUpon>fAdmin_Cus.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\fCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\fCustomer.Designer.cs">
       <DependentUpon>fCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\fCus_Invoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\fCus_Invoice.Designer.cs">
+      <DependentUpon>fCus_Invoice.cs</DependentUpon>
     </Compile>
     <Compile Include="View\fCus_Overview.cs">
       <SubType>Form</SubType>
@@ -104,9 +128,22 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\fAdmin.resx">
+      <DependentUpon>fAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\fAdmin_Book.resx">
+      <DependentUpon>fAdmin_Book.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\fAdmin_Cus.resx">
+      <DependentUpon>fAdmin_Cus.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\fCustomer.resx">
       <DependentUpon>fCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\fCus_Invoice.resx">
+      <DependentUpon>fCus_Invoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\fCus_Overview.resx">
       <DependentUpon>fCus_Overview.cs</DependentUpon>
@@ -117,9 +154,15 @@
     <EmbeddedResource Include="View\fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\fRegister.resx">
+      <DependentUpon>fRegister.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Data\Books.csv" />
     <None Include="Data\Cart.csv" />
-    <None Include="Data\Customer.csv" />
+    <None Include="Data\Customers.csv" />
+    <None Include="Data\Invoice.csv" />
+    <None Include="Data\Invoice_Info.csv" />
+    <None Include="Data\SoldProducts.csv" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -134,7 +177,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <None Include="Resources\icons8-book-shop-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-50.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

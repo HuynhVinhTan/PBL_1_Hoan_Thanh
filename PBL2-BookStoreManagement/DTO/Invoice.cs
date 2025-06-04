@@ -1,11 +1,5 @@
-﻿using PBL2_BookStoreManagement.BUS;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Menu;
-
 namespace PBL2_BookStoreManagement.DTO
 {
     class Invoice
@@ -25,5 +19,4 @@ namespace PBL2_BookStoreManagement.DTO
             TotalAmount = totalAmount;
         }
     }
-
 }

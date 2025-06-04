@@ -3,24 +3,27 @@ using System.Drawing;
 using System.Windows.Forms;
 using PBL2_BookStoreManagement.DTO;
 using PBL2_BookStoreManagement.BUS;
+using System.Collections.Generic;
+
 
 namespace PBL2_BookStoreManagement.View
     {
     public partial class fCustomer : Form
     {
-        private string userID = "userid_001";  // ID giả lập
-        private string userName = "Vo Nhu Chien";
+
         public fCustomer()
         {
             InitializeComponent();
-            Session.Cur_cus = new Customer(userID, userName);
             LoadFormIntoPanel(new fCus_Overview());
-            lbl_welcome.Text = "Welcome " + Session.Cur_cus.User_name;
+            lbl_welcome.Text = "Welcome " + Session.Cur_cus.UserName;
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
+            Session.Cur_cus = null;
+            fLogin login = new fLogin();
+            login.Show();
         }
 
         private void LoadFormIntoPanel(Form form)
@@ -43,6 +46,19 @@ namespace PBL2_BookStoreManagement.View
         private void button3_Click_1(object sender, EventArgs e)
         {
             LoadFormIntoPanel(new fCus_Product());
+        }
+
+        private void btn_Logout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Session.Cur_cus = null;
+            fLogin login = new fLogin();
+            login.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            LoadFormIntoPanel(new fCus_Invoice());
         }
     }
 }

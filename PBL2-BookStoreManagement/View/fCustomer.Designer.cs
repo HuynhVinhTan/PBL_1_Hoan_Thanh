@@ -36,6 +36,7 @@
             this.lbl_welcome = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.btn_Logout = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -85,6 +86,7 @@
             this.panel2.Controls.Add(this.lbl_welcome);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.button3);
+            this.panel2.Controls.Add(this.btn_Logout);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -127,6 +129,18 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
+            // btn_Logout
+            // 
+            this.btn_Logout.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F);
+            this.btn_Logout.Location = new System.Drawing.Point(38, 596);
+            this.btn_Logout.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_Logout.Name = "btn_Logout";
+            this.btn_Logout.Size = new System.Drawing.Size(87, 31);
+            this.btn_Logout.TabIndex = 2;
+            this.btn_Logout.Text = "Log Out";
+            this.btn_Logout.UseVisualStyleBackColor = true;
+            this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
+            // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F);
@@ -137,6 +151,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "Invoice";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -191,7 +206,8 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lbl_welcome;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btn_Logout;
     }
 }

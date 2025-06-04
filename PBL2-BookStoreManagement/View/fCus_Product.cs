@@ -3,8 +3,8 @@ using PBL2_BookStoreManagement.DTO;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
-
 
 namespace PBL2_BookStoreManagement.View
 {
@@ -14,198 +14,204 @@ namespace PBL2_BookStoreManagement.View
         {
             InitializeComponent();
             LoadBookData();
-            Customize_dtgv_Book();
+            CustomizeDataGridView(dtgv_Books);
         }
 
         private void LoadBookData()
         {
-            List<Book> books = BUS_Book.Instance.GetAllBooks();
+            var books = BUS_Book.Instance.GetAllBooks()
+                            .Where(book => book.book_quantity > 0)
+                            .ToList();
+
             dtgv_Books.DataSource = books;
-
-            if (dtgv_Books.Columns["AddToCart"] == null)
-            {
-                DataGridViewButtonColumn btnAddToCart = new DataGridViewButtonColumn();
-                btnAddToCart.HeaderText = "Add To Cart";
-                btnAddToCart.Text = "Add";
-                btnAddToCart.UseColumnTextForButtonValue = true;
-                btnAddToCart.Name = "AddToCart";
-                dtgv_Books.Columns.Add(btnAddToCart);
-            }
-
-            // Remove the incorrect line causing the error
-            // dtgv_Books_CellContentClick -= dtgv_Books_CellContentClick;
-
-            // Ensure the event handler is only added once
+            AddButtonToGrid(dtgv_Books, "AddToCart", "Add To Cart", "Add");
             dtgv_Books.CellContentClick -= dtgv_Books_CellContentClick;
             dtgv_Books.CellContentClick += dtgv_Books_CellContentClick;
+            Customize_dtgv_Book();
         }
 
         private void dtgv_Books_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex == dtgv_Books.Columns["AddToCart"].Index)
+            if (e.RowIndex < 0 || dtgv_Books.Columns[e.ColumnIndex].Name != "AddToCart") return;
+
+            var selectedBook = dtgv_Books.Rows[e.RowIndex].DataBoundItem as Book;
+            if (selectedBook != null && !BUS_Cart.Instance.AddToCart(selectedBook))
             {
-                Book selectedBook = dtgv_Books.Rows[e.RowIndex].DataBoundItem as Book;
-                if (selectedBook != null)
-                {
-                    if (BUS_Cart.Instance.AddToCart(selectedBook) == false)
-                    {
-                        MessageBox.Show("Out Of Stock", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    LoadCartData(); // Cập nhật giỏ hàng
-                }
+                MessageBox.Show("Out Of Stock", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            LoadCartData();
         }
+
         private void dtgv_Cart_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0 || e.ColumnIndex < 0) return; // 🔥 Fix lỗi Index -1
-            if (e.RowIndex >= 0)
-            {
-                Cart selectedBook = dtgv_Cart.Rows[e.RowIndex].DataBoundItem as Cart;
-                if (selectedBook == null) return;
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
 
-                if (e.ColumnIndex == dtgv_Cart.Columns["Increase"].Index)
-                {
-                    BUS_Cart.Instance.UpdateCart(selectedBook.book_ID, "Increase");
-                }
-                else if (e.ColumnIndex == dtgv_Cart.Columns["Decrease"].Index)
-                {
-                    BUS_Cart.Instance.UpdateCart(selectedBook.book_ID, "Decrease");
-                }
-                else if (e.ColumnIndex == dtgv_Cart.Columns["Remove"].Index)
-                {
+            var selectedBook = dtgv_Cart.Rows[e.RowIndex].DataBoundItem as Cart;
+            if (selectedBook == null) return;
+
+            string columnName = dtgv_Cart.Columns[e.ColumnIndex].Name;
+            switch (columnName)
+            {
+                case "Increase":
+                case "Decrease":
+                    BUS_Cart.Instance.UpdateCart(selectedBook.book_ID, columnName);
+                    break;
+                case "Remove":
                     BUS_Cart.Instance.RemoveFromCart(selectedBook.book_ID);
-                }
-                LoadCartData(); // Cập nhật giỏ hàng
+                    break;
             }
+            LoadCartData();
         }
+
         private void LoadCartData()
         {
-            var cart = BUS_Cart.Instance.GetCart();
             dtgv_Cart.DataSource = null;
-            dtgv_Cart.DataSource = cart;
+            dtgv_Cart.DataSource = BUS_Cart.Instance.GetCart();
             Customize_dtgv_Cart();
             lbl_totalcost.Text = BUS_Cart.Instance.GetTotalPrice().ToString();
         }
+
         private void confirm_Cart(object sender, EventArgs e)
         {
-            if (BUS_Book.Instance.Updated_Book())
-            {
-                MessageBox.Show("Purchase successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                string invoicetext = BUS_Invoice.Instance.create_Invoice_Info();
-                MessageBox.Show(invoicetext, "Hóa đơn của bạn");
-                BUS_Cart.Instance.ClearCart();
-                LoadBookData();
-                LoadCartData();
-            }
-            else
+            if (!BUS_Book.Instance.Updated_Book())
             {
                 MessageBox.Show("No items in cart", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+            MessageBox.Show("Purchase successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ShowInvoice(BUS_Invoice.Instance.create_Invoice_Info());
+            BUS_Cart.Instance.ClearCart();
+            LoadBookData();
+            LoadCartData();
         }
+
+        private void ShowInvoice(string invoicetext)
+        {
+            Form frm = new Form
+            {
+                Text = "Hóa đơn của bạn",
+                Size = new Size(600, 400),
+                StartPosition = FormStartPosition.CenterScreen
+            };
+
+            RichTextBox rtb = new RichTextBox
+            {
+                Dock = DockStyle.Fill,
+                ReadOnly = true,
+                Font = new Font("Segoe UI", 13),
+                Text = invoicetext
+            };
+
+            frm.Controls.Add(rtb);
+            frm.ShowDialog();
+        }
+
         private void Customize_dtgv_Cart()
         {
-            // Xóa cột nút nếu đã tồn tại (tránh bị lặp khi load lại)
-            RemoveButtonColumn("Increase");
-            RemoveButtonColumn("Decrease");
-            RemoveButtonColumn("Remove");
+            string[] removeColumns = { "Increase", "Decrease", "Remove" };
+            foreach (var col in removeColumns)
+            {
+                if (dtgv_Cart.Columns.Contains(col)) dtgv_Cart.Columns.Remove(col);
+            }
 
-            // Đặt lại header các cột dữ liệu
-            if (dtgv_Cart.Columns["book_ID"] != null) dtgv_Cart.Columns["book_ID"].HeaderText = "ID";
-            if (dtgv_Cart.Columns["book_name"] != null) dtgv_Cart.Columns["book_name"].HeaderText = "Name";
-            if (dtgv_Cart.Columns["book_price"] != null) dtgv_Cart.Columns["book_price"].HeaderText = "Price";
-            if (dtgv_Cart.Columns["book_quantity"] != null) dtgv_Cart.Columns["book_quantity"].HeaderText = "Quantity";
+            SetCartHeader();
+            AddButtonToGrid(dtgv_Cart, "Increase", "", "+");
+            AddButtonToGrid(dtgv_Cart, "Decrease", "", "-");
+            AddButtonToGrid(dtgv_Cart, "Remove", "", "Remove");
 
-            // Ẩn các cột không cần thiết
-            if (dtgv_Cart.Columns["book_author"] != null) dtgv_Cart.Columns["book_author"].Visible = false;
-            if (dtgv_Cart.Columns["book_genre"] != null) dtgv_Cart.Columns["book_genre"].Visible = false;
+            int i = 0;
+            foreach (string colName in new[] { "book_ID", "book_name", "book_quantity", "book_price", "Increase", "Decrease", "Remove" })
+            {
+                if (dtgv_Cart.Columns[colName] != null)
+                    dtgv_Cart.Columns[colName].DisplayIndex = i++;
+            }
 
-            // Thêm các nút cuối bảng
-            AddButtonColumn("Increase", "+", "");
-            AddButtonColumn("Decrease", "-", "");
-            AddButtonColumn("Remove", "Remove", "");
-
-            // Cố định thứ tự hiển thị cột (tùy chỉnh theo ý bạn)
-            dtgv_Cart.Columns["book_ID"].DisplayIndex = 0;
-            dtgv_Cart.Columns["book_name"].DisplayIndex = 1;
-            dtgv_Cart.Columns["book_quantity"].DisplayIndex = 2;
-            dtgv_Cart.Columns["book_price"].DisplayIndex = 3;
-            dtgv_Cart.Columns["Increase"].DisplayIndex = 4;
-            dtgv_Cart.Columns["Decrease"].DisplayIndex = 5;
-            dtgv_Cart.Columns["Remove"].DisplayIndex = 6;
-
-            // Giao diện chung
-            dtgv_Cart.Font = new Font("Segoe UI", 8, FontStyle.Regular);
-            dtgv_Cart.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dtgv_Cart.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            dtgv_Cart.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-            dtgv_Cart.EnableHeadersVisualStyles = false;
-            dtgv_Cart.ColumnHeadersDefaultCellStyle.BackColor = Color.Navy;
-            dtgv_Cart.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-
-            dtgv_Cart.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
-            dtgv_Cart.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dtgv_Cart.RowHeadersVisible = false;
-            dtgv_Cart.AllowUserToResizeRows = false;
-            dtgv_Cart.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            CustomizeDataGridView(dtgv_Cart);
             dtgv_Cart.CellContentClick -= dtgv_Cart_CellContentClick;
             dtgv_Cart.CellContentClick += dtgv_Cart_CellContentClick;
         }
 
-        private void RemoveButtonColumn(string name)
+        private void SetCartHeader()
         {
-            if (dtgv_Cart.Columns.Contains(name))
-            {
-                dtgv_Cart.Columns.Remove(name);
-            }
+            if (dtgv_Cart.Columns["book_ID"] != null) dtgv_Cart.Columns["book_ID"].HeaderText = "ID";
+            if (dtgv_Cart.Columns["book_name"] != null) dtgv_Cart.Columns["book_name"].HeaderText = "Name";
+            if (dtgv_Cart.Columns["book_price"] != null) dtgv_Cart.Columns["book_price"].HeaderText = "Price";
+            if (dtgv_Cart.Columns["book_quantity"] != null) dtgv_Cart.Columns["book_quantity"].HeaderText = "Quantity";
+            if (dtgv_Cart.Columns["book_author"] != null) dtgv_Cart.Columns["book_author"].Visible = false;
+            if (dtgv_Cart.Columns["book_genre"] != null) dtgv_Cart.Columns["book_genre"].Visible = false;
         }
 
-        private void AddButtonColumn(string name, string text, string headerText)
+        private void AddButtonToGrid(DataGridView dgv, string name, string headerText, string text)
         {
-            if (dtgv_Cart.Columns[name] == null)
+            if (dgv.Columns[name] != null) return;
+
+            var buttonColumn = new DataGridViewButtonColumn
             {
-                var buttonColumn = new DataGridViewButtonColumn
+                Name = name,
+                HeaderText = headerText,
+                Text = text,
+                UseColumnTextForButtonValue = true,
+                DefaultCellStyle = new DataGridViewCellStyle
                 {
-                    Name = name,
-                    Text = text,
-                    HeaderText = headerText,
-                    UseColumnTextForButtonValue = true
-                };
-                dtgv_Cart.Columns.Add(buttonColumn);
-            }
+                    ForeColor = Color.Red,
+                    Font = new Font("Segoe UI", 10, FontStyle.Bold)
+                }
+            };
+            dgv.Columns.Add(buttonColumn);
         }
 
-        private void Customize_dtgv_Book() //dtgv_Book
+        private void Customize_dtgv_Book()
         {
-            #region dtgv_Books
-            //set up 
-            dtgv_Books.Columns["book_ID"].HeaderText = "ID";
-            dtgv_Books.Columns["book_author"].HeaderText = "Author";
-            dtgv_Books.Columns["book_genre"].HeaderText = "Genre";
-            dtgv_Books.Columns["book_quantity"].HeaderText = "Quantity";
-            dtgv_Books.Columns["book_price"].HeaderText = "Price";
-            dtgv_Books.Columns["book_name"].HeaderText = "Name";
-            #endregion
-            CustomizeDataGridView(dtgv_Books);
+            var headers = new Dictionary<string, string>
+            {
+                ["book_ID"] = "ID",
+                ["book_name"] = "Name",
+                ["book_author"] = "Author",
+                ["book_genre"] = "Genre",
+                ["book_quantity"] = "Quantity",
+                ["book_price"] = "Price"
+            };
+
+            foreach (var kvp in headers)
+            {
+                if (dtgv_Books.Columns[kvp.Key] != null)
+                    dtgv_Books.Columns[kvp.Key].HeaderText = kvp.Value;
+            }
+
+            if (dtgv_Books.Columns["AddToCart"] != null)
+                dtgv_Books.Columns["AddToCart"].DisplayIndex = dtgv_Books.Columns.Count - 1;
         }
 
         private void CustomizeDataGridView(DataGridView dgv)
         {
-            dgv.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+            dgv.Font = new Font("Segoe UI", 10);
             dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 12, FontStyle.Bold);
             dgv.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-            dgv.EnableHeadersVisualStyles = false;
             dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.Navy;
             dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-
             dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv.RowHeadersVisible = false;
             dgv.AllowUserToResizeRows = false;
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv.EnableHeadersVisualStyles = false;
         }
 
+        private void tbSearch_TextChanged(object sender, EventArgs e)
+        {
+            var kw = tbSearch.Text.Trim().ToLower();
+            var all = BUS_Book.Instance.GetAllBooks()
+                        .Where(book => book.book_quantity > 0)
+                        .ToList();
+
+            var filtered = string.IsNullOrEmpty(kw)
+                            ? all
+                            : all.Where(b => b.book_name.ToLower().Contains(kw)).ToList();
+
+            dtgv_Books.DataSource = null;
+            dtgv_Books.DataSource = filtered;
+            Customize_dtgv_Book();
+        }
     }
 }

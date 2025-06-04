@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using BookStoreApp.DAL;
 using System.Linq;
+using System.Collections;
+using System.Net;
+using System.Diagnostics;
+using System.Xml.Linq;
 
 namespace PBL2_BookStoreManagement.DAL
 {
@@ -74,7 +78,56 @@ namespace PBL2_BookStoreManagement.DAL
             {
                 data.Add(new string[] { book.book_ID, book.book_name, book.book_author, book.book_genre, book.book_quantity.ToString(), book.book_price.ToString() });
             }
-            DataProvider.Instance.Write_CSV(filePath, data);
+            List<string> header = new List<string> { "book_ID", "book_name", "book_author", "book_genre", "book_quantity", "book_price" };
+            DataProvider.Instance.Write_CSV(filePath, data, header);
+        }
+
+        public void AddBook(string bookId, string name, string author, string category, int stock, double price)
+        {
+            List<Book> books = GetBooks();
+            Book book = new Book(bookId, name, author, category, stock, price);
+            books.Add(book);
+
+            // Convert the list of books to a list of string arrays for writing to CSV  
+            List<string[]> bookData = books.Select(b => new string[]
+            {
+                   b.book_ID,
+                   b.book_name,
+                   b.book_author,
+                   b.book_genre,
+                   b.book_quantity.ToString(),
+                   b.book_price.ToString()
+            }).ToList();
+
+            DataProvider.Instance.Write_CSV(filePath, bookData);
+        }
+
+        public void UpdateBook(Book book, int index)
+        {
+            // Cập nhật thông tin sách  
+            List<Book> books = GetBooks();
+            books[index] = book;
+
+            // Ghi lại toàn bộ danh sách vào file CSV  
+            List<string[]> allData = new List<string[]>();
+            allData.AddRange(books.Select(c => new string[] { c.book_ID, c.book_name, c.book_author, c.book_genre, c.book_quantity.ToString(), c.book_price.ToString()}).ToList());
+            DataProvider.Instance.Write_CSV(filePath, allData);
+        }
+        public void Update_Book_ID(List<Book> books, int index)
+        {
+            for (int i = index; i < books.Count; i++)
+            {
+                books[i].book_ID = "B" + (i + 1).ToString("D3");
+            }
+        }
+        public void DeleteBook(int index)
+        {
+            List<Book> books = GetBooks();
+            books.RemoveAt(index);
+            Update_Book_ID(books, index);
+            List<string[]> allData = new List<string[]>();
+            allData.AddRange(books.Select(c => new string[] { c.book_ID, c.book_name, c.book_author, c.book_genre, c.book_quantity.ToString(), c.book_price.ToString() }).ToList());
+            DataProvider.Instance.Write_CSV(filePath, allData);
         }
         #endregion
 

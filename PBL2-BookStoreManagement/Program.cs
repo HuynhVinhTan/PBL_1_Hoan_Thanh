@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PBL2_BookStoreManagement.DAL;
+
 using PBL2_BookStoreManagement.View;
 namespace GUI
 {
@@ -16,7 +18,7 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fCustomer());
+            Application.Run(new fLogin());
         }
     }
 }

@@ -1,0 +1,51 @@
+﻿cus_id,cus_name,username,phone,email,address,password
+CUS000,vonhuchien,vnchien,0973581590,vonhuchien@gmail.com,38 Duong Khue,chien1
+CUS001,nguyenvana,nvana,0912345671,nvana@example.com,12 Le Loi,nvana1
+CUS002,tranthib,ttb123,0987654321,ttb123@example.com,45 Nguyen Trai,ttbpass
+CUS003,phamthic,ptc88,0901122334,ptc88@example.com,78 Hoang Van Thu,ptcpass
+CUS004,leducthinh,ldthinh,0933221144,ldthinh@example.com,23 Hai Ba Trung,thinh123
+CUS005,dothanhdat,dtdat99,0911998877,dtdat99@example.com,67 Ly Thuong Kiet,datpass
+CUS006,ngothilinh,ntlinh,0903332221,ntlinh@example.com,90 Dinh Tien Hoang,linhpass
+CUS007,truongminhtruong,ttruong,0966554433,ttruong@example.com,11 Tran Hung Dao,truong1
+CUS008,nguyenhonganh,nhanh123,0944556677,nhanh123@example.com,56 Le Van Luong,anhpass
+CUS009,phamquocbao,pqbao,0922334455,pqbao@example.com,44 Nguyen Huu Canh,baopass
+CUS010,dinhmanhcuong,dmc123,0988776655,dmc123@example.com,88 Quang Trung,cuongpass
+CUS011,hoangthanhdung,htd123,0977665544,htd123@example.com,36 Duy Tan,dungpass
+CUS012,nguyendanghoa,ndhoa,0933442211,ndhoa@example.com,100 Bach Dang,hoapass
+CUS013,truongkimyen,tkyen,0909090909,tkyen@example.com,22 Vo Thi Sau,yenpass
+CUS014,lequanghuy,lqhuy,0921212121,lqhuy@example.com,77 Ton Duc Thang,huypass
+CUS015,tranminhanh,tmanh,0985656565,tmanh@example.com,31 Nguyen Van Cu,anhtran1
+CUS016,phanngochien,pngchien,0918989898,pngchien@example.com,29 Phan Dang Luu,chienpass
+CUS017,ngothuydung,ntdung,0947474747,ntdung@example.com,66 Nguyen Khuyen,dung2
+CUS018,leminhtam,lmtam,0959595959,lmtam@example.com,87 Mac Dinh Chi,tampass
+CUS019,dinhphuong,dphuong,0908787878,dphuong@example.com,20 Le Quy Don,phuong1
+CUS020,phamvanminh,pvminh,0969696969,pvminh@example.com,39 Tran Quoc Toan,minh1
+CUS021,nguyentuananh,ntanh,0917171717,ntanh@example.com,101 Tran Phu,tuan1
+CUS022,dothithuy,dthuy,0936363636,dthuy@example.com,55 Le Lai,thuy123
+CUS023,hoangkimhoa,hkhoa,0973737373,hkhoa@example.com,60 Hai Thuong Lan Ong,hoakhoa1
+CUS024,buiquoccuong,bqcuong,0949494949,bqcuong@example.com,48 Dang Dung,cuongbq1
+CUS025,tranvanbinh,tvbinh,0984848484,tvbinh@example.com,79 Nguyen Du,binh1
+CUS026,dangthihien,dthien,0958585858,dthien@example.com,13 Phan Boi Chau,hienpass
+CUS027,lethanhtrung,lttrung,0923232323,lttrung@example.com,27 Le Dai Hanh,trunglt
+CUS028,nguyenkimngan,nkngan,0906969696,nkngan@example.com,42 Nguyen Dinh Chieu,nganpass
+CUS029,dovanlong,dvlong,0968686868,dvlong@example.com,16 Tran Cao Van,longpass
+CUS030,phamthihong,phong,0915656565,phong@example.com,99 Truong Dinh,hongpham1
+CUS031,tranngocmai,tnmai,0979797979,tnmai@example.com,19 Nguyen Luong Bang,maitran
+CUS032,hoangthanhson,htson,0987878787,htson@example.com,61 Dien Bien Phu,sonpass
+CUS033,nguyenminhthu,nmthu,0903434343,nmthu@example.com,74 Tran Binh Trong,thupass
+CUS034,dangquochung,dqhung,0953535353,dqhung@example.com,82 Le Thanh Tong,hung1
+CUS035,lethanhhien,lthien,0938383838,lthien@example.com,58 Ngo Quyen,hienle1
+CUS036,tranduong,trduong,0974747474,trduong@example.com,33 Nguyen Hue,duong1
+CUS037,nguyenvandung,nvdung,0942424242,nvdung@example.com,40 Vo Van Tan,dungnv
+CUS038,phamquynhanh,pqanh,0901212121,pqanh@example.com,21 Cach Mang Thang Tam,anhpq
+CUS039,dinhthianh,dthanhl,0964343434,dthanhl@example.com,53 An Duong Vuong,anhdt
+CUS040,ngothivinh,ntvinh,0912323232,ntvinh@example.com,15 Tran Khanh Du,vinhpass
+CUS041,luongduchuy,ldhuy,0951212121,ldhuy@example.com,32 Ly Nam De,huyld
+CUS042,nguyenthihoa,nthoa,0983232323,nthoa@example.com,85 Ham Nghi,hoanth
+CUS043,phamthiduyen,ptduyen,0974343434,ptduyen@example.com,47 Bach Dang,duyenpt
+CUS044,dolemanh,dmanh,0905454545,dmanh@example.com,30 Le Van Tam,manhdl
+CUS045,tranvankien,tvkien,0913434343,tvkien@example.com,72 Nguyen Canh Chan,kientv
+CUS046,nguyendinhtung,ndtung,0967676767,ndtung@example.com,62 Pham Ngoc Thach,tungnd
+CUS047,nguyenthanhnga,ntnga,0942323232,ntnga@example.com,59 Nguyen Thien Thuat,ngant
+CUS048,phanquangminh,pqminh,0956565656,pqminh@example.com,26 Nam Ky Khoi Nghia,minhpq
+CUS049,trankimphung,tkphung,0931212121,tkphung@example.com,10 Huynh Thuc Khang,phungtk

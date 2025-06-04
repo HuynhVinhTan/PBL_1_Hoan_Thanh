@@ -11,3 +11,8 @@ D:\AppData\Source\repos\PBL2-BookStoreManagement\PBL2-BookStoreManagement\obj\De
 D:\AppData\Source\repos\PBL2-BookStoreManagement\PBL2-BookStoreManagement\obj\Debug\PBL2-BookStoreManagementSystem.csproj.CoreCompileInputs.cache
 D:\AppData\Source\repos\PBL2-BookStoreManagement\PBL2-BookStoreManagement\obj\Debug\PBL2-BookStoreManagement.exe
 D:\AppData\Source\repos\PBL2-BookStoreManagement\PBL2-BookStoreManagement\obj\Debug\PBL2-BookStoreManagement.pdb
+D:\AppData\Source\repos\PBL2-BookStoreManagement\PBL2-BookStoreManagement\obj\Debug\PBL2_BookStoreManagement.View.fAdmin.resources
+D:\AppData\Source\repos\PBL2-BookStoreManagement\PBL2-BookStoreManagement\obj\Debug\PBL2_BookStoreManagement.View.fAdmin_Book.resources
+D:\AppData\Source\repos\PBL2-BookStoreManagement\PBL2-BookStoreManagement\obj\Debug\PBL2_BookStoreManagement.View.fAdmin_Cus.resources
+D:\AppData\Source\repos\PBL2-BookStoreManagement\PBL2-BookStoreManagement\obj\Debug\PBL2_BookStoreManagement.View.fRegister.resources
+D:\AppData\Source\repos\PBL2-BookStoreManagement\PBL2-BookStoreManagement\obj\Debug\PBL2_BookStoreManagement.View.fCus_Invoice.resources
