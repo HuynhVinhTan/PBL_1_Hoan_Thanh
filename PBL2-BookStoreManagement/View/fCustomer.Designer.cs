@@ -47,11 +47,12 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(153)))), ((int)(((byte)(248)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.ForeColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1450, 32);
@@ -60,11 +61,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 8);
+            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(2, 4);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 21);
+            this.label1.Size = new System.Drawing.Size(104, 25);
             this.label1.TabIndex = 5;
             this.label1.Text = "Book Store";
             // 
@@ -82,7 +83,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(99)))), ((int)(((byte)(102)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(153)))), ((int)(((byte)(248)))));
             this.panel2.Controls.Add(this.lbl_welcome);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.button3);
@@ -99,11 +100,11 @@
             // lbl_welcome
             // 
             this.lbl_welcome.AutoSize = true;
-            this.lbl_welcome.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_welcome.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold);
             this.lbl_welcome.ForeColor = System.Drawing.Color.White;
-            this.lbl_welcome.Location = new System.Drawing.Point(26, 88);
+            this.lbl_welcome.Location = new System.Drawing.Point(25, 88);
             this.lbl_welcome.Name = "lbl_welcome";
-            this.lbl_welcome.Size = new System.Drawing.Size(60, 20);
+            this.lbl_welcome.Size = new System.Drawing.Size(61, 25);
             this.lbl_welcome.TabIndex = 0;
             this.lbl_welcome.Text = "label3";
             // 
@@ -119,54 +120,63 @@
             // 
             // button3
             // 
-            this.button3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F);
-            this.button3.Location = new System.Drawing.Point(38, 189);
+            this.button3.BackColor = System.Drawing.Color.White;
+            this.button3.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold);
+            this.button3.ForeColor = System.Drawing.Color.Black;
+            this.button3.Location = new System.Drawing.Point(30, 206);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(87, 24);
+            this.button3.Size = new System.Drawing.Size(105, 37);
             this.button3.TabIndex = 2;
             this.button3.Text = "Product";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // btn_Logout
             // 
-            this.btn_Logout.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F);
-            this.btn_Logout.Location = new System.Drawing.Point(38, 596);
+            this.btn_Logout.BackColor = System.Drawing.Color.White;
+            this.btn_Logout.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btn_Logout.ForeColor = System.Drawing.Color.Black;
+            this.btn_Logout.Location = new System.Drawing.Point(30, 585);
             this.btn_Logout.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Logout.Name = "btn_Logout";
-            this.btn_Logout.Size = new System.Drawing.Size(87, 31);
+            this.btn_Logout.Size = new System.Drawing.Size(105, 37);
             this.btn_Logout.TabIndex = 2;
             this.btn_Logout.Text = "Log Out";
-            this.btn_Logout.UseVisualStyleBackColor = true;
+            this.btn_Logout.UseVisualStyleBackColor = false;
             this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
             // 
             // button2
             // 
-            this.button2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F);
-            this.button2.Location = new System.Drawing.Point(38, 233);
+            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold);
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(30, 278);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(87, 24);
+            this.button2.Size = new System.Drawing.Size(105, 37);
             this.button2.TabIndex = 2;
             this.button2.Text = "Invoice";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(38, 147);
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(30, 138);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 24);
+            this.button1.Size = new System.Drawing.Size(105, 37);
             this.button1.TabIndex = 2;
             this.button1.Text = "Overview";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(170, 32);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);

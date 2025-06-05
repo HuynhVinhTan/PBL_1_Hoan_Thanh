@@ -15,7 +15,7 @@ namespace PBL2_BookStoreManagement.View
         {
             InitializeComponent();
             LoadFormIntoPanel(new fCus_Overview());
-            lbl_welcome.Text = "Welcome " + Session.Cur_cus.UserName;
+            lbl_welcome.Text = "Welcome " + Session.Cur_cus.UserName;         
         }
 
         private void label2_Click(object sender, EventArgs e)

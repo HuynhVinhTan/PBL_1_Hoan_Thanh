@@ -71,19 +71,23 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(153)))), ((int)(((byte)(248)))));
             this.label1.Location = new System.Drawing.Point(809, 405);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 17);
+            this.label1.Size = new System.Drawing.Size(103, 25);
             this.label1.TabIndex = 2;
             this.label1.Text = "Total cost:";
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(1193, 433);
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(153)))), ((int)(((byte)(248)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(153)))), ((int)(((byte)(248)))));
+            this.button1.Location = new System.Drawing.Point(1175, 434);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(101, 33);
             this.button1.TabIndex = 3;
             this.button1.Text = "Confirm";
             this.button1.UseVisualStyleBackColor = true;
@@ -92,20 +96,22 @@
             // lbl_totalcost
             // 
             this.lbl_totalcost.AutoSize = true;
-            this.lbl_totalcost.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold);
-            this.lbl_totalcost.Location = new System.Drawing.Point(881, 405);
+            this.lbl_totalcost.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold);
+            this.lbl_totalcost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(153)))), ((int)(((byte)(248)))));
+            this.lbl_totalcost.Location = new System.Drawing.Point(918, 405);
             this.lbl_totalcost.Name = "lbl_totalcost";
-            this.lbl_totalcost.Size = new System.Drawing.Size(16, 17);
+            this.lbl_totalcost.Size = new System.Drawing.Size(22, 25);
             this.lbl_totalcost.TabIndex = 2;
             this.lbl_totalcost.Text = "0";
             // 
             // tbSearch
             // 
             this.tbSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.2F);
-            this.tbSearch.Location = new System.Drawing.Point(95, 1);
+            this.tbSearch.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold);
+            this.tbSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(153)))), ((int)(((byte)(248)))));
+            this.tbSearch.Location = new System.Drawing.Point(95, 4);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(708, 36);
+            this.tbSearch.Size = new System.Drawing.Size(708, 31);
             this.tbSearch.TabIndex = 31;
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
@@ -113,7 +119,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Image = global::PBL2_BookStoreManagement.Properties.Resources.icons8_search_30;
-            this.pictureBox1.Location = new System.Drawing.Point(59, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(64, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(30, 30);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -124,7 +130,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gainsboro;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1280, 648);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tbSearch);

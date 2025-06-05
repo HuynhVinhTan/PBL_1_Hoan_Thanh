@@ -130,6 +130,7 @@ namespace PBL2_BookStoreManagement.View
             CustomizeDataGridView(dtgv_Cart);
             dtgv_Cart.CellContentClick -= dtgv_Cart_CellContentClick;
             dtgv_Cart.CellContentClick += dtgv_Cart_CellContentClick;
+
         }
 
         private void SetCartHeader()
@@ -185,17 +186,53 @@ namespace PBL2_BookStoreManagement.View
 
         private void CustomizeDataGridView(DataGridView dgv)
         {
-            dgv.Font = new Font("Segoe UI", 10);
-            dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 12, FontStyle.Bold);
-            dgv.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.Navy;
-            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv.RowHeadersVisible = false;
+            // Không cho chỉnh sửa
+            dgv.ReadOnly = true;
+            dgv.AllowUserToAddRows = false;
+            dgv.AllowUserToDeleteRows = false;
+            dgv.EditMode = DataGridViewEditMode.EditProgrammatically;
+
+            // Không cho resize cột và dòng
+            dgv.AllowUserToResizeColumns = false;
             dgv.AllowUserToResizeRows = false;
+
+            // Không có viền ngoài
+            dgv.BorderStyle = BorderStyle.None;
+
+            // Chỉ viền ngang (không viền dọc)
+            dgv.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+
+            // Không hiển thị chỉ số dòng (bên trái)
+            dgv.RowHeadersVisible = false;
+
+            // Màu và font
+            dgv.BackgroundColor = Color.White;
+            dgv.GridColor = Color.Black;
+            dgv.Font = new Font("Comic Sans MS", 12f, FontStyle.Bold);
+            dgv.ForeColor = Color.FromArgb(17, 153, 248);
+            dgv.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            // Căn giữa và font cho header
             dgv.EnableHeadersVisualStyles = false;
+            dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Comic Sans MS", 14f, FontStyle.Bold);
+            dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.White;
+            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(17, 153, 248);
+            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None; // ❌ Không dấu phân cách ở header
+
+            // Màu dòng
+            dgv.RowsDefaultCellStyle.BackColor = Color.White;
+            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
+
+            // Dòng được chọn
+            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv.ColumnHeadersDefaultCellStyle.SelectionBackColor = dgv.ColumnHeadersDefaultCellStyle.BackColor;
+            dgv.ColumnHeadersDefaultCellStyle.SelectionForeColor = dgv.ColumnHeadersDefaultCellStyle.ForeColor;
+            dgv.DefaultCellStyle.SelectionBackColor = Color.FromArgb(17, 153, 248);
+            dgv.DefaultCellStyle.SelectionForeColor = Color.White;
+
+            // Giãn cột vừa bảng, không cho resize
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void tbSearch_TextChanged(object sender, EventArgs e)

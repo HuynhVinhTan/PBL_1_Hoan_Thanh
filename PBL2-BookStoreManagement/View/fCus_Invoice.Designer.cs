@@ -34,6 +34,7 @@
             // 
             // dtgv_Invoice
             // 
+            this.dtgv_Invoice.BackgroundColor = System.Drawing.Color.White;
             this.dtgv_Invoice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_Invoice.Location = new System.Drawing.Point(12, 13);
             this.dtgv_Invoice.Name = "dtgv_Invoice";
@@ -46,6 +47,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1280, 648);
             this.Controls.Add(this.dtgv_Invoice);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);

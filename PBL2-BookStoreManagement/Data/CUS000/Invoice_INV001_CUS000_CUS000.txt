@@ -1,0 +1,14 @@
+========== BOOK STORE INVOICE ==========
+Invoice ID   : INV001_CUS000
+Customer ID  : CUS000
+Customer Name: vnchien
+Phone Number : 0973581590
+Email        : vonhuchien@gmail.com
+Address      : 38 Duong Khue
+Date Created : 04/06/2025
+----------------------------------------
+Item                              Quantity           Price
+Introduction to Algorithms          2              $159.98
+----------------------------------------
+                                    Total: $159.98
+============= THANK YOU! ===============

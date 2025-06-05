@@ -67,5 +67,10 @@ namespace PBL2_BookStoreManagement.View
             txt_Phone.ForeColor = ColorTranslator.FromHtml("#0D1B2A");
             txt_Address.ForeColor = ColorTranslator.FromHtml("#0D1B2A");
         }
+
+        private void txt_Name_TextChanged(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

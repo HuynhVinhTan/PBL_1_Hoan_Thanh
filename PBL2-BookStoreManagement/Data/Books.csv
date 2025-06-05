@@ -1,17 +1,17 @@
 book_ID,book_name,book_author,book_genre,book_quantity,book_price
 B001,Clean Code,Robert C Martin,Programming,0,35.99
 B002,The Pragmatic Programmer,Andrew Hunt,Programming,6,40.5
-B003,Introduction to Algorithms,Thomas H Cormen,Computer Science,6,79.99
+B003,Introduction to Algorithms,Thomas H Cormen,Computer Science,2,79.99
 B004,Design Patterns,Erich Gamma,Software Engineering,4,45
 B005,Refactoring,Martin Fowler,Programming,8,47.99
 B006,The Mythical Man-Month,Frederick P Brooks Jr,Software Engineering,3,34.99
 B007,Code Complete,Steve McConnell,Programming,2,50.99
 B008,You Dont Know JS,Kyle Simpson,JavaScript,4,29.99
 B009,Eloquent JavaScript,Marijn Haverbeke,JavaScript,18,25.99
-B010,Deep Learning,Ian Goodfellow,Artificial Intelligence,9,89.99
+B010,Deep Learning,Ian Goodfellow,Artificial Intelligence,8,89.99
 B011,Artificial Intelligence A Modern Approach,Stuart Russell,Artificial Intelligence,9,92.5
 B012,Structure and Interpretation of Computer Programs,Harold Abelson,Computer Science,5,64.99
-B013,The Clean Coder,Robert C Martin,Programming,5,33.5
+B013,The Clean Coder,Robert C Martin,Programming,4,33.5
 B014,Working Effectively with Legacy Code,Michael Feathers,Software Engineering,6,38.75
 B015,Domain-Driven Design,Eric Evans,Software Engineering,6,55.9
 B016,Introduction to the Theory of Computation,Michael Sipser,Computer Science,7,72

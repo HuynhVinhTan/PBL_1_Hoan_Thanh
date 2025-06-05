@@ -1,0 +1,15 @@
+========== BOOK STORE INVOICE ==========
+Invoice ID   : INV003_CUS000
+Customer ID  : CUS000
+Customer Name: vnchien
+Phone Number : 0973581590
+Email        : vonhuchien@gmail.com
+Address      : 38 Duong Khue
+Date Created : 04/06/2025
+----------------------------------------
+Item                             Quantity           Price
+Deep Learning                      1               $89.99
+The Clean Coder                    1               $33.50
+----------------------------------------
+                                    Total: $123.49
+============= THANK YOU! ===============
