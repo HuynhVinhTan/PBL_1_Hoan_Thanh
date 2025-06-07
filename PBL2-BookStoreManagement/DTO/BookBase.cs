@@ -1,6 +1,6 @@
 ﻿namespace PBL2_BookStoreManagement.DTO
 {
-    class BookBase //Hiện tại chưa cần quan tâm
+    class BookBase
     {
         public string book_ID { get; set; }
         public string book_name { get; set; }
@@ -12,5 +12,7 @@
             book_name = name;
             book_quantity = quantity;
         }
+
+        public BookBase() { }
     }
 }
