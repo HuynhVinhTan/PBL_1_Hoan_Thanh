@@ -64,5 +64,9 @@ class BUS_Invoice
         return DAL_Invoice.Instance.get_Total_Invoice();
     }
 
+    public List<Cart> GetSoldBook()
+    {
+        return DAL_Invoice.Instance.get_SoldProduct();
+    }
     #endregion
 }

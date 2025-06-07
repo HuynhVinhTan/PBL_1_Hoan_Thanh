@@ -64,7 +64,7 @@ namespace PBL2_BookStoreManagement.View
                 Color textColor = Color.Black;
 
                 // Font chữ tuỳ chỉnh
-                using (Font customFont = new Font("Comic Sans MS", 12f, FontStyle.Bold))
+                using (Font customFont = new Font("Comic Sans MS", 11f, FontStyle.Bold))
                 {
                     TextRenderer.DrawText(e.Graphics, "DETAIL", customFont, e.CellBounds, textColor,
                         TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
@@ -88,12 +88,12 @@ namespace PBL2_BookStoreManagement.View
                 // Tạo form đơn giản để hiển thị văn bản
                 Form frm = new Form();
                 frm.Text = "Hóa đơn của bạn";
-                frm.Size = new Size(600, 400);
+                frm.Size = new Size(800, 800);
 
                 RichTextBox rtb = new RichTextBox();
                 rtb.Dock = DockStyle.Fill;
                 rtb.ReadOnly = true;
-                rtb.Font = new Font("Comic Sans MS", 12f, FontStyle.Italic); // chỉnh cỡ chữ tại đây
+                rtb.Font = new Font("Comic Sans MS", 12f, FontStyle.Bold); // chỉnh cỡ chữ tại đây
                 frm.StartPosition = FormStartPosition.CenterScreen;
                 rtb.Text = invoicetext;
 
@@ -139,16 +139,16 @@ namespace PBL2_BookStoreManagement.View
             // Màu và font
             dgv.BackgroundColor = Color.White;
             dgv.GridColor = Color.Black;
-            dgv.Font = new Font("Comic Sans MS", 12f, FontStyle.Bold);
-            dgv.ForeColor = Color.FromArgb(17, 153, 248); 
+            dgv.Font = new Font("Comic Sans MS", 11f, FontStyle.Bold);
+            dgv.ForeColor = Color.Black ; 
             dgv.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             // Căn giữa và font cho header
             dgv.EnableHeadersVisualStyles = false;
             dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Comic Sans MS", 14f, FontStyle.Bold);
+            dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Comic Sans MS", 12f, FontStyle.Bold);
             dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.White;
-            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(17, 153, 248);
+            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
             dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None; // ❌ Không dấu phân cách ở header
 
             // Màu dòng

@@ -47,7 +47,10 @@ namespace PBL2_BookStoreManagement.BUS
         {
             DAL_Customer.Instance.UpdateCustomer(customer, index);
         }
-
+        public void UpdateCustomer(Customer customer) // overload for updating without index
+        {
+            DAL_Customer.Instance.UpdateCustomer(customer);
+        }
         public void AddCustomer(Customer customer)
         {
             DAL_Customer.Instance.AddCustomer(customer);

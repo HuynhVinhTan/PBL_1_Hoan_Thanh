@@ -1,0 +1,15 @@
+========== BOOK STORE INVOICE ==========
+Invoice ID   : INV004_CUS000
+Customer ID  : CUS000
+Customer Name: vnchien
+Phone Number : 0973581590
+Email        : vonhuchien@gmail.com
+Address      : 38 Duong Khue
+Date Created : 05/06/2025
+----------------------------------------
+Item                             Quantity           Price
+Design Patterns                    3              $135.00
+The Mythical Man-Month             1               $34.99
+----------------------------------------
+                                    Total: $169.99
+============= THANK YOU! ===============

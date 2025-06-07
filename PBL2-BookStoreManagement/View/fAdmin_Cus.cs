@@ -5,7 +5,6 @@ using System.Linq;
 using System;
 using System.Windows.Forms;
 using System.Collections.Generic;
-using System.IO;
 
 namespace PBL2_BookStoreManagement.View
 {
@@ -14,7 +13,6 @@ namespace PBL2_BookStoreManagement.View
         public fAdmin_Cus()
         {
             InitializeComponent();
-            //tbSearch.TextChanged += textBox7_TextChanged;
         }
 
         #region atri
@@ -25,73 +23,108 @@ namespace PBL2_BookStoreManagement.View
 
 
         #region Method
+
         void createCol()
         {
             // Xóa các cột cũ (nếu có)
             dtgvCustomer.Columns.Clear();
+            dtgvCustomer.AutoGenerateColumns = false;
 
             var colUserID = new DataGridViewTextBoxColumn
             {
                 Name = "colUserID",
-                DataPropertyName = "Cus_ID",
+                DataPropertyName = "cus_id",
                 HeaderText = "ID",
             };
 
             var colUserName = new DataGridViewTextBoxColumn
             {
                 Name = "colUserName",
-                DataPropertyName = "username",
-                HeaderText = "Tên đăng nhập",
+                DataPropertyName = "userName",
+                HeaderText = "Username",
             };
 
-            /*var colName = new DataGridViewTextBoxColumn
+            var colName = new DataGridViewTextBoxColumn
             {
                 Name = "colName",
-                DataPropertyName = "name",
-                HeaderText = "Tên",
-            };*/
+                DataPropertyName = "Name",
+                HeaderText = "Name",
+            };
 
             var colEmail = new DataGridViewTextBoxColumn
             {
                 Name = "colEmail",
-                DataPropertyName = "email",
+                DataPropertyName = "Email",
                 HeaderText = "Email",
             };
             var colAddress = new DataGridViewTextBoxColumn
             {
                 Name = "colAddress",
-                DataPropertyName = "address",
-                HeaderText = "Địa chỉ",
+                DataPropertyName = "Address",
+                HeaderText = "Address",
             };
 
             var colPhone = new DataGridViewTextBoxColumn
             {
                 Name = "colPhone",
-                DataPropertyName = "phone",
-                HeaderText = "Số điện thoại",
+                DataPropertyName = "Phone",
+                HeaderText = "Phone",
             };
 
             var colPassword = new DataGridViewTextBoxColumn
             {
                 Name = "colPassword",
                 DataPropertyName = "password",
-                HeaderText = "Mật khẩu",
+                HeaderText = "Pass",
             };
 
-            dtgvCustomer.Columns.AddRange(new DataGridViewColumn[] { colUserID, colUserName, /*colName,*/ colPhone, colEmail, colAddress, colPassword });
-            dtgvCustomer.RowHeadersVisible = false;
-            dtgvCustomer.AllowUserToResizeColumns = false;
-            dtgvCustomer.AllowUserToResizeRows = false;
-            dtgvCustomer.RowTemplate.Height = 35;
-            dtgvCustomer.ColumnHeadersHeight = 40;
-            dtgvCustomer.ColumnHeadersDefaultCellStyle.BackColor = Color.Blue;
-            dtgvCustomer.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dtgvCustomer.EnableHeadersVisualStyles = false;
-            dtgvCustomer.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 11F, FontStyle.Bold);
-            dtgvCustomer.DefaultCellStyle.Font = new Font("Times New Roman", 10F, FontStyle.Regular);
-            dtgvCustomer.RowsDefaultCellStyle.BackColor = Color.White;
-            dtgvCustomer.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
+            dtgvCustomer.Columns.AddRange(new DataGridViewColumn[] {
+        colUserID, colName, colUserName, colPhone, colEmail, colAddress, colPassword
+    });
+
+            // Gọi hàm tùy chỉnh giao diện
+            CustomizeDataGridView(dtgvCustomer);
         }
+
+        void CustomizeDataGridView(DataGridView dgv)
+        {
+            dgv.ReadOnly = true;
+            dgv.AllowUserToAddRows = false;
+            dgv.AllowUserToDeleteRows = false;
+            dgv.EditMode = DataGridViewEditMode.EditProgrammatically;
+
+            dgv.AllowUserToResizeColumns = false;
+            dgv.AllowUserToResizeRows = false;
+
+            dgv.BorderStyle = BorderStyle.None;
+            dgv.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgv.RowHeadersVisible = false;
+
+            dgv.BackgroundColor = Color.White;
+            dgv.GridColor = Color.Black;
+            dgv.Font = new Font("Comic Sans MS", 11f, FontStyle.Bold);
+            dgv.ForeColor = Color.Black;
+            dgv.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            dgv.EnableHeadersVisualStyles = false;
+            dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Comic Sans MS", 12f, FontStyle.Bold);
+            dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.White;
+            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+
+            dgv.RowsDefaultCellStyle.BackColor = Color.White;
+            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
+
+            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv.ColumnHeadersDefaultCellStyle.SelectionBackColor = dgv.ColumnHeadersDefaultCellStyle.BackColor;
+            dgv.ColumnHeadersDefaultCellStyle.SelectionForeColor = dgv.ColumnHeadersDefaultCellStyle.ForeColor;
+            dgv.DefaultCellStyle.SelectionBackColor = Color.FromArgb(17, 153, 248);
+            dgv.DefaultCellStyle.SelectionForeColor = Color.White;
+
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
 
         void clear_panel()
         {
@@ -133,7 +166,7 @@ namespace PBL2_BookStoreManagement.View
         {
             textBox1.Enabled = tb;
             textBox2.Enabled = tb;
-            // textBox3.Enabled = tb;
+            textBox3.Enabled = tb;
             textBox4.Enabled = tb;
             textBox5.Enabled = tb;
             textBox6.Enabled = tb;
@@ -144,7 +177,7 @@ namespace PBL2_BookStoreManagement.View
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text)
                 || string.IsNullOrWhiteSpace(textBox2.Text)
-                /*|| string.IsNullOrWhiteSpace(textBox3.Text)*/
+                || string.IsNullOrWhiteSpace(textBox3.Text)
                 || string.IsNullOrWhiteSpace(textBox4.Text)
                 || string.IsNullOrWhiteSpace(textBox5.Text)
                 || string.IsNullOrWhiteSpace(textBox6.Text))
@@ -210,22 +243,22 @@ namespace PBL2_BookStoreManagement.View
             button_isEnable(false, true);
             sta = "add";
             if (BUS_Customer.Instance.CountCustomer() < 100)
-                textBox1.Text = "U0" + (BUS_Customer.Instance.CountCustomer() + 1).ToString();
+                textBox1.Text = "C0" + (BUS_Customer.Instance.CountCustomer() + 1).ToString();
             else
-                textBox1.Text = "U" + (BUS_Customer.Instance.CountCustomer() + 1).ToString();
+                textBox1.Text = "C" + (BUS_Customer.Instance.CountCustomer() + 1).ToString();
         }
         private void button2_Click(object sender, EventArgs e)
         {
             if (Index < 0)
             {
-                MessageBox.Show("Vui lòng chọn một khách hàng để xóa.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn một khách hàng để Sửa.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             textBox2.ReadOnly = true;
             button_isEnable(false, true);
             textBox1.Text = BUS_Customer.Instance.GetAllCustomer()[Index].Cus_ID;
-            textBox2.Text = BUS_Customer.Instance.GetAllCustomer()[Index].UserName;
-            /*textBox3.Text = BUS_Customer.Instance.GetAllCustomer()[Index].Name;*/
+            textBox2.Text = BUS_Customer.Instance.GetAllCustomer()[Index].Name;
+            textBox3.Text = BUS_Customer.Instance.GetAllCustomer()[Index].UserName;
             textBox4.Text = BUS_Customer.Instance.GetAllCustomer()[Index].Phone;
             textBox5.Text = BUS_Customer.Instance.GetAllCustomer()[Index].Email;
             textBox6.Text = BUS_Customer.Instance.GetAllCustomer()[Index].Address;
@@ -254,7 +287,6 @@ namespace PBL2_BookStoreManagement.View
             clear_panel();
             isEnable(false, true);
         }
-        /*
         private void button5_Click(object sender, EventArgs e)
         {
             textBox2.ReadOnly = false;
@@ -272,7 +304,7 @@ namespace PBL2_BookStoreManagement.View
             string username = textBox2.Text; // Giả sử username = name nếu không có textBox6
             if (sta == "add")
             {
-                BUS_Customer.Instance.AddCustomer(new Customer(textBox1.Text, textBox2.Text, textBox3.Text,textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text));
+                BUS_Customer.Instance.AddCustomer(new Customer(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text));
             }
             else if (sta == "edit")
             {
@@ -288,7 +320,6 @@ namespace PBL2_BookStoreManagement.View
             clear_panel();
             isEnable(false, true);
         }
-        */
 
         #endregion
 
@@ -299,21 +330,32 @@ namespace PBL2_BookStoreManagement.View
 
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
-            var kw = tbSearch.Text.Trim().ToLower();
+            var raw = tbSearch.Text.Trim().ToLower();
             var all = BUS_Customer.Instance.GetAllCustomer();
 
             List<Customer> filtered;
-            if (string.IsNullOrEmpty(kw))
+
+            if (string.IsNullOrEmpty(raw))
             {
                 filtered = all;
             }
             else
             {
-                filtered = all
-                    .Where(u => u.UserName.ToLower().Contains(kw))
-                    .ToList();
+                // Tách từ khóa theo dấu phẩy, loại bỏ khoảng trắng
+                var keywords = raw.Split(',')
+                                  .Select(k => k.Trim())
+                                  .Where(k => !string.IsNullOrEmpty(k))
+                                  .ToList();
+
+                filtered = all.Where(u =>
+                    keywords.All(kw =>
+                        (u.UserName != null && u.UserName.ToLower().Contains(kw)) ||
+                        (u.Name != null && u.Name.ToLower().Contains(kw))
+                    )
+                ).ToList();
             }
 
+            dtgvCustomer.AutoGenerateColumns = false;
             dtgvCustomer.DataSource = null;
             createCol();
             dtgvCustomer.DataSource = filtered;
@@ -321,17 +363,7 @@ namespace PBL2_BookStoreManagement.View
             lbcount.Text = filtered.Count.ToString();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button3_Click_1(object sender, EventArgs e)
+        private void dtgvCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

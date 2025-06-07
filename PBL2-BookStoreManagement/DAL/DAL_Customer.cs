@@ -80,6 +80,26 @@ namespace PBL2_BookStoreManagement.DAL
             DataProvider.Instance.Write_CSV(filePath, allData,header);
         }
 
+        public void UpdateCustomer(Customer customer) //overloading
+        {
+            List<Customer> allCustomers = GetCustomers();
+            var customerToUpdate = allCustomers.FirstOrDefault(c => c.Cus_ID == customer.Cus_ID);
+            if (customerToUpdate != null)
+            {
+                customerToUpdate.Name = customer.Name;
+                customerToUpdate.UserName = customer.UserName;
+                customerToUpdate.Phone = customer.Phone;
+                customerToUpdate.Email = customer.Email;
+                customerToUpdate.Address = customer.Address;
+                customerToUpdate.Password = customer.Password;
+                // Ghi lại toàn bộ danh sách vào file CSV
+                List<string[]> allData = new List<string[]>();
+                allData.AddRange(allCustomers.Select(c => new string[] { c.Cus_ID, c.Name, c.UserName, c.Phone, c.Email, c.Address, c.Password }).ToList());
+                List<string> header = new List<string> { "cus_id", "cus_name", "cus_phone", "cus_email", "cus_address", "cus_pass" };
+                DataProvider.Instance.Write_CSV(filePath, allData, header);
+            }
+        }
+
         public Customer get_Customers(string username) //overloading
         {
             return customers.FirstOrDefault(c => c.UserName == username);

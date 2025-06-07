@@ -1,0 +1,16 @@
+========== BOOK STORE INVOICE ==========
+Invoice ID   : INV001_CUS050
+Customer ID  : CUS050
+Customer Name: vinhtan
+Phone Number : 0912345683
+Email        : vtan@gmail.com
+Address      : Quang Nam
+Date Created : 07/06/2025
+----------------------------------------
+Item                             Quantity           Price
+Design Patterns                    1               $45.00
+Code Complete                      1               $50.99
+Eloquent JavaScript                1               $25.99
+----------------------------------------
+                                    Total: $121.98
+============= THANK YOU! ===============

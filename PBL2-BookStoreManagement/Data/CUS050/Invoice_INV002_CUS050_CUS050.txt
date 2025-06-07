@@ -1,0 +1,14 @@
+========== BOOK STORE INVOICE ==========
+Invoice ID   : INV002_CUS050
+Customer ID  : CUS050
+Customer Name: vinhtan
+Phone Number : 0912345683
+Email        : vtan@gmail.com
+Address      : Quang Nam
+Date Created : 07/06/2025
+----------------------------------------
+Item                                                     Quantity           Price
+Structure and Interpretation of Computer Programs          1               $64.99
+----------------------------------------
+                                     Total: $64.99
+============= THANK YOU! ===============

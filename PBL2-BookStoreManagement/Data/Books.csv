@@ -1,16 +1,13 @@
 book_ID,book_name,book_author,book_genre,book_quantity,book_price
-B001,Clean Code,Robert C Martin,Programming,0,35.99
-B002,The Pragmatic Programmer,Andrew Hunt,Programming,6,40.5
-B003,Introduction to Algorithms,Thomas H Cormen,Computer Science,2,79.99
-B004,Design Patterns,Erich Gamma,Software Engineering,4,45
-B005,Refactoring,Martin Fowler,Programming,8,47.99
-B006,The Mythical Man-Month,Frederick P Brooks Jr,Software Engineering,3,34.99
-B007,Code Complete,Steve McConnell,Programming,2,50.99
-B008,You Dont Know JS,Kyle Simpson,JavaScript,4,29.99
-B009,Eloquent JavaScript,Marijn Haverbeke,JavaScript,18,25.99
-B010,Deep Learning,Ian Goodfellow,Artificial Intelligence,8,89.99
+B004,Design Patterns,Erich Gamma,Software Engineering,0,45
+B005,Refactoring,Martin Fowler,Programming,7,47.99
+B006,The Mythical Man-Month,Frederick P Brooks Jr,Software Engineering,0,34.99
+B007,Code Complete,Steve McConnell,Programming,1,50.99
+B008,You Dont Know JS,Kyle Simpson,JavaScript,2,29.99
+B009,Eloquent JavaScript,Marijn Haverbeke,JavaScript,16,25.99
+B010,Deep Learning,Ian Goodfellow,Artificial Intelligence,7,89.99
 B011,Artificial Intelligence A Modern Approach,Stuart Russell,Artificial Intelligence,9,92.5
-B012,Structure and Interpretation of Computer Programs,Harold Abelson,Computer Science,5,64.99
+B012,Structure and Interpretation of Computer Programs,Harold Abelson,Computer Science,4,64.99
 B013,The Clean Coder,Robert C Martin,Programming,4,33.5
 B014,Working Effectively with Legacy Code,Michael Feathers,Software Engineering,6,38.75
 B015,Domain-Driven Design,Eric Evans,Software Engineering,6,55.9
@@ -28,7 +25,7 @@ B026,The Art of Computer Programming,Donald Knuth,Computer Science,4,190.5
 B027,Grokking Algorithms,Aditya Bhargava,Computer Science,10,35.5
 B028,Don't Make Me Think,Steve Krug,UIUX Design,6,28.75
 B029,Soft Skills,John Sonmez,Career,9,32
-B030,The DevOps Handbook,Gene Kim,Software Engineering,5,52
+B030,The DevOps Handbook,Gene Kim,Software Engineering,6,52
 B031,Clean Code Vol.3,Robert C Martin,Programming,9,43.55
 B032,Cracking the Coding Interview Vol.2,Gayle Laakmann McDowell,Career,5,34.2
 B033,Code Complete Vol.5,Steve McConnell,Programming,10,50.33
@@ -39,13 +36,12 @@ B037,Domain-Driven Design Vol.2,Eric Evans,Software Engineering,11,61.71
 B038,Refactoring Vol.3,Martin Fowler,Programming,7,41.07
 B039,Deep Learning Vol.3,Ian Goodfellow,Artificial Intelligence,2,80.43
 B040,Design Patterns Vol.2,Erich Gamma,Software Engineering,6,52.49
-B041,Eloquent JavaScript Vol.3,Marijn Haverbeke,JavaScript,6,24.49
-B042,Patterns of Enterprise Application Architecture Vol.2,Martin Fowler,Software Engineering,3,66.86
-B043,Refactoring UI Vol.3,Adam Wathan,UIUX Design,14,38.61
-B044,Structure and Interpretation of Computer Programs Vol.3,Harold Abelson,Computer Science,7,57.7
-B045,The Art of Computer Programming Vol.3,Donald Knuth,Computer Science,8,184.08
-B046,Artificial Intelligence A Modern Approach Vol.2,Stuart Russell,Artificial Intelligence,2,97.26
-B047,Soft Skills Vol.5,John Sonmez,Career,11,36.77
-B048,Introduction to Algorithms Vol.2,Thomas H Cormen,Computer Science,5,87.55
-B049,Working Effectively with Legacy Code Vol.3,Michael Feathers,Software Engineering,6,43.41
-B050,The Pragmatic Programmer Vol.4,Andrew Hunt,Programming,9,31.96
+B041,Patterns of Enterprise Application Architecture Vol.2,Martin Fowler,Software Engineering,3,66.86
+B042,Refactoring UI Vol.3,Adam Wathan,UIUX Design,14,38.61
+B043,Structure and Interpretation of Computer Programs Vol.3,Harold Abelson,Computer Science,7,57.7
+B044,The Art of Computer Programming Vol.3,Donald Knuth,Computer Science,8,184.08
+B045,Artificial Intelligence A Modern Approach Vol.2,Stuart Russell,Artificial Intelligence,2,97.26
+B046,Soft Skills Vol.5,John Sonmez,Career,11,36.77
+B047,Introduction to Algorithms Vol.2,Thomas H Cormen,Computer Science,10,87.55
+B048,Working Effectively with Legacy Code Vol.3,Michael Feathers,Software Engineering,6,43.41
+B049,The Pragmatic Programmer Vol.4,Andrew Hunt,Programming,9,31.96

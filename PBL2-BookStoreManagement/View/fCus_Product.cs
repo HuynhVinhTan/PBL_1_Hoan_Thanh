@@ -24,7 +24,7 @@ namespace PBL2_BookStoreManagement.View
                             .ToList();
 
             dtgv_Books.DataSource = books;
-            AddButtonToGrid(dtgv_Books, "AddToCart", "Add To Cart", "Add");
+            AddButtonToGrid(dtgv_Books, "AddToCart", "Add To Cart", "ADD", new Font("Comic Sans MS", 12, FontStyle.Bold));
             dtgv_Books.CellContentClick -= dtgv_Books_CellContentClick;
             dtgv_Books.CellContentClick += dtgv_Books_CellContentClick;
             Customize_dtgv_Book();
@@ -68,7 +68,7 @@ namespace PBL2_BookStoreManagement.View
             dtgv_Cart.DataSource = null;
             dtgv_Cart.DataSource = BUS_Cart.Instance.GetCart();
             Customize_dtgv_Cart();
-            lbl_totalcost.Text = BUS_Cart.Instance.GetTotalPrice().ToString();
+            lbl_totalcost.Text = BUS_Cart.Instance.GetTotalPrice().ToString() + " $";
         }
 
         private void confirm_Cart(object sender, EventArgs e)
@@ -91,7 +91,7 @@ namespace PBL2_BookStoreManagement.View
             Form frm = new Form
             {
                 Text = "Hóa đơn của bạn",
-                Size = new Size(600, 400),
+                Size = new Size(800, 600),
                 StartPosition = FormStartPosition.CenterScreen
             };
 
@@ -99,7 +99,7 @@ namespace PBL2_BookStoreManagement.View
             {
                 Dock = DockStyle.Fill,
                 ReadOnly = true,
-                Font = new Font("Segoe UI", 13),
+                Font = new Font("Comic Sans MS", 12, FontStyle.Bold),
                 Text = invoicetext
             };
 
@@ -116,9 +116,9 @@ namespace PBL2_BookStoreManagement.View
             }
 
             SetCartHeader();
-            AddButtonToGrid(dtgv_Cart, "Increase", "", "+");
-            AddButtonToGrid(dtgv_Cart, "Decrease", "", "-");
-            AddButtonToGrid(dtgv_Cart, "Remove", "", "Remove");
+            AddButtonToGrid(dtgv_Cart, "Increase", "", "+", new Font("Comic Sans MS", 12, FontStyle.Bold));
+            AddButtonToGrid(dtgv_Cart, "Decrease", "", "-", new Font("Comic Sans MS", 12, FontStyle.Bold));
+            AddButtonToGrid(dtgv_Cart, "Remove", "", "Remove", new Font("Comic Sans MS", 12, FontStyle.Bold));
 
             int i = 0;
             foreach (string colName in new[] { "book_ID", "book_name", "book_quantity", "book_price", "Increase", "Decrease", "Remove" })
@@ -130,7 +130,6 @@ namespace PBL2_BookStoreManagement.View
             CustomizeDataGridView(dtgv_Cart);
             dtgv_Cart.CellContentClick -= dtgv_Cart_CellContentClick;
             dtgv_Cart.CellContentClick += dtgv_Cart_CellContentClick;
-
         }
 
         private void SetCartHeader()
@@ -143,7 +142,7 @@ namespace PBL2_BookStoreManagement.View
             if (dtgv_Cart.Columns["book_genre"] != null) dtgv_Cart.Columns["book_genre"].Visible = false;
         }
 
-        private void AddButtonToGrid(DataGridView dgv, string name, string headerText, string text)
+        private void AddButtonToGrid(DataGridView dgv, string name, string headerText, string text, Font font = null)
         {
             if (dgv.Columns[name] != null) return;
 
@@ -156,7 +155,7 @@ namespace PBL2_BookStoreManagement.View
                 DefaultCellStyle = new DataGridViewCellStyle
                 {
                     ForeColor = Color.Red,
-                    Font = new Font("Segoe UI", 10, FontStyle.Bold)
+                    Font = font ?? new Font("Comic Sans MS", 10, FontStyle.Italic)
                 }
             };
             dgv.Columns.Add(buttonColumn);
@@ -208,16 +207,16 @@ namespace PBL2_BookStoreManagement.View
             // Màu và font
             dgv.BackgroundColor = Color.White;
             dgv.GridColor = Color.Black;
-            dgv.Font = new Font("Comic Sans MS", 12f, FontStyle.Bold);
-            dgv.ForeColor = Color.FromArgb(17, 153, 248);
+            dgv.Font = new Font("Comic Sans MS", 10f, FontStyle.Bold);
+            dgv.ForeColor = Color.Black;
             dgv.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             // Căn giữa và font cho header
             dgv.EnableHeadersVisualStyles = false;
             dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Comic Sans MS", 14f, FontStyle.Bold);
+            dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Comic Sans MS", 13f, FontStyle.Bold);
             dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.White;
-            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(17, 153, 248);
+            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
             dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None; // ❌ Không dấu phân cách ở header
 
             // Màu dòng
