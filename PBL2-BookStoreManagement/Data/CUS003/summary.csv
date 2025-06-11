@@ -1,0 +1,3 @@
+invoice_id,cus_id,data_created,total_amount
+INV000_CUS003,CUS003,6/10/2025 11:19:09 PM,280.82
+INV001_CUS003,CUS003,6/10/2025 11:19:14 PM,308.64

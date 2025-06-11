@@ -1,0 +1,14 @@
+========== BOOK STORE INVOICE ==========
+Invoice ID   : INV009_CUS000
+Customer ID  : CUS000
+Customer Name: vnchien
+Phone Number : 0973581590
+Email        : vonhuchien@gmail.com
+Address      : 123 Duong Khue Da Nang
+Date Created : 12/06/2025
+----------------------------------------
+Item                             Quantity           Price
+Code Complete                      1               $50.99
+----------------------------------------
+                                     Total: $50.99
+============= THANK YOU! ===============

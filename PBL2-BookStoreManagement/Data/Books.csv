@@ -1,22 +1,25 @@
 book_ID,book_name,book_author,book_genre,book_quantity,book_price
+B001,Clean Code,Robert C Martin,Programming,10,35.99
+B002,The Pragmatic Programmer,Andrew Hunt,Programming,5,40.5
+B003,Introduction to Algorithms,Thomas H Cormen,Computer Science,8,79.9
 B004,Design Patterns,Erich Gamma,Software Engineering,0,45
 B005,Refactoring,Martin Fowler,Programming,7,47.99
 B006,The Mythical Man-Month,Frederick P Brooks Jr,Software Engineering,0,34.99
-B007,Code Complete,Steve McConnell,Programming,1,50.99
+B007,Code Complete,Steve McConnell,Programming,0,50.99
 B008,You Dont Know JS,Kyle Simpson,JavaScript,2,29.99
-B009,Eloquent JavaScript,Marijn Haverbeke,JavaScript,16,25.99
-B010,Deep Learning,Ian Goodfellow,Artificial Intelligence,7,89.99
-B011,Artificial Intelligence A Modern Approach,Stuart Russell,Artificial Intelligence,9,92.5
-B012,Structure and Interpretation of Computer Programs,Harold Abelson,Computer Science,4,64.99
-B013,The Clean Coder,Robert C Martin,Programming,4,33.5
+B009,Eloquent JavaScript,Marijn Haverbeke,JavaScript,15,25.99
+B010,Deep Learning,Ian Goodfellow,Artificial Intelligence,6,89.99
+B011,Artificial Intelligence A Modern Approach,Stuart Russell,Artificial Intelligence,7,92.5
+B012,Structure and Interpretation of Computer Programs,Harold Abelson,Computer Science,3,64.99
+B013,The Clean Coder,Robert C Martin,Programming,2,33.5
 B014,Working Effectively with Legacy Code,Michael Feathers,Software Engineering,6,38.75
-B015,Domain-Driven Design,Eric Evans,Software Engineering,6,55.9
-B016,Introduction to the Theory of Computation,Michael Sipser,Computer Science,7,72
-B017,Programming Pearls,Jon Bentley,Programming,10,29.95
-B018,Cracking the Coding Interview,Gayle Laakmann McDowell,Career,7,39.99
+B015,Domain-Driven Design,Eric Evans,Software Engineering,5,55.9
+B016,Introduction to the Theory of Computation,Michael Sipser,Computer Science,5,72
+B017,Programming Pearls,Jon Bentley,Programming,9,29.95
+B018,Cracking the Coding Interview,Gayle Laakmann McDowell,Career,6,39.99
 B019,Head First Design Patterns,Eric Freeman,Software Engineering,5,49.95
 B020,JavaScript The Good Parts,Douglas Crockford,JavaScript,7,27.5
-B021,Patterns of Enterprise Application Architecture,Martin Fowler,Software Engineering,2,58
+B021,Patterns of Enterprise Application Architecture,Martin Fowler,Software Engineering,1,58
 B022,Introduction to Machine Learning,Ethem Alpaydin,Artificial Intelligence,5,48.9
 B023,Compilers Principles Techniques and Tools,Alfred Aho,Computer Science,3,84.99
 B024,Refactoring UI,Adam Wathan,UIUX Design,6,39
@@ -36,10 +39,10 @@ B037,Domain-Driven Design Vol.2,Eric Evans,Software Engineering,11,61.71
 B038,Refactoring Vol.3,Martin Fowler,Programming,7,41.07
 B039,Deep Learning Vol.3,Ian Goodfellow,Artificial Intelligence,2,80.43
 B040,Design Patterns Vol.2,Erich Gamma,Software Engineering,6,52.49
-B041,Patterns of Enterprise Application Architecture Vol.2,Martin Fowler,Software Engineering,3,66.86
-B042,Refactoring UI Vol.3,Adam Wathan,UIUX Design,14,38.61
-B043,Structure and Interpretation of Computer Programs Vol.3,Harold Abelson,Computer Science,7,57.7
-B044,The Art of Computer Programming Vol.3,Donald Knuth,Computer Science,8,184.08
+B041,Patterns of Enterprise Application Architecture Vol.2,Martin Fowler,Software Engineering,2,66.86
+B042,Refactoring UI Vol.3,Adam Wathan,UIUX Design,12,38.61
+B043,Structure and Interpretation of Computer Programs Vol.3,Harold Abelson,Computer Science,6,57.7
+B044,The Art of Computer Programming Vol.3,Donald Knuth,Computer Science,6,184.08
 B045,Artificial Intelligence A Modern Approach Vol.2,Stuart Russell,Artificial Intelligence,2,97.26
 B046,Soft Skills Vol.5,John Sonmez,Career,11,36.77
 B047,Introduction to Algorithms Vol.2,Thomas H Cormen,Computer Science,10,87.55

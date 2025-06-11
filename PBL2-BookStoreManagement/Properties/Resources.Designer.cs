@@ -224,6 +224,16 @@ namespace PBL2_BookStoreManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_filter_24 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-filter-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_logout_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-logout-30", resourceCulture);

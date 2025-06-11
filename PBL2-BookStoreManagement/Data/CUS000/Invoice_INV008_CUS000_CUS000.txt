@@ -1,0 +1,14 @@
+========== BOOK STORE INVOICE ==========
+Invoice ID   : INV008_CUS000
+Customer ID  : CUS000
+Customer Name: vnchien
+Phone Number : 0973581590
+Email        : vonhuchien@gmail.com
+Address      : 123 Duong Khue Da Nang
+Date Created : 11/06/2025
+----------------------------------------
+Item                                             Quantity           Price
+Introduction to the Theory of Computation          1               $72.00
+----------------------------------------
+                                     Total: $72.00
+============= THANK YOU! ===============

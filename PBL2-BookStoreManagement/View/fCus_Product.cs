@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
+
 namespace PBL2_BookStoreManagement.View
 {
     public partial class fCus_Product : Form
@@ -15,7 +16,29 @@ namespace PBL2_BookStoreManagement.View
             InitializeComponent();
             LoadBookData();
             CustomizeDataGridView(dtgv_Books);
+            InitFilterControls();
         }
+
+        private void InitFilterControls()
+        {
+            List<Book> booksinstore = BUS_Book.Instance.GetAllBooks();
+            if (booksinstore.Count == 0) return;
+
+            nudMinPrice.Minimum = 0;
+            nudMinPrice.Maximum = decimal.MaxValue;
+            nudMinPrice.Value = (decimal)booksinstore.Min(inv => inv.book_price);
+
+            nudMaxPrice.Minimum = 0;
+            nudMaxPrice.Maximum = decimal.MaxValue;
+            nudMaxPrice.Value = (decimal)booksinstore.Max(inv => inv.book_price);
+
+            cbSortPrice.Items.Clear();
+            cbSortPrice.Items.AddRange(new string[] { "None", "Price Ascending", "Price Descending" });
+            cbSortPrice.SelectedIndex = 0;
+            cbSortPrice.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbSortPrice.ForeColor = Color.FromArgb(17, 153, 248);
+        }
+
 
         private void LoadBookData()
         {
@@ -249,5 +272,40 @@ namespace PBL2_BookStoreManagement.View
             dtgv_Books.DataSource = filtered;
             Customize_dtgv_Book();
         }
+
+        // Hàm xử lý nút Lọc giá
+        private void btnFilterPrice_Click(object sender, EventArgs e)
+        {
+            decimal minPrice = nudMinPrice.Value;
+            decimal maxPrice = nudMaxPrice.Value;
+            string sortOption = cbSortPrice.SelectedItem.ToString();
+
+            // Lấy toàn bộ sách từ BUS (hoặc source của bạn)
+            List<Book> books = BUS_Book.Instance.GetAllBooks()
+                .Where(book => book.book_quantity > 0 &&
+                               (decimal)book.book_price >= minPrice &&
+                               (decimal)book.book_price <= maxPrice)
+                .ToList();
+
+            // Sắp xếp theo lựa chọn
+            switch (sortOption)
+            {
+                case "Price Ascending":
+                    books = books.OrderBy(b => b.book_price).ToList();
+                    break;
+                case "Price Descending":
+                    books = books.OrderByDescending(b => b.book_price).ToList();
+                    break;
+                default:
+                    break; // Không sắp xếp
+            }
+
+            // Cập nhật DataGridView
+            dtgv_Books.DataSource = null;
+            dtgv_Books.DataSource = books;
+
+            Customize_dtgv_Book(); // Nếu bạn có hàm custom hiển thị thì gọi lại
+        }
+
     }
 }

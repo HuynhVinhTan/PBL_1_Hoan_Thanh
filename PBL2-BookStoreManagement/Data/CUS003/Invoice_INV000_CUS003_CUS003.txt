@@ -1,0 +1,18 @@
+========== BOOK STORE INVOICE ==========
+Invoice ID   : INV000_CUS003
+Customer ID  : CUS003
+Customer Name: ptc88
+Phone Number : 0901122334
+Email        : ptc88@example.com
+Address      : 78 Hoang Van Thu
+Date Created : 10/06/2025
+----------------------------------------
+Item                                                     Quantity           Price
+Deep Learning                                              1               $89.99
+Structure and Interpretation of Computer Programs          1               $64.99
+Domain-Driven Design                                       1               $55.90
+Programming Pearls                                         1               $29.95
+Cracking the Coding Interview                              1               $39.99
+----------------------------------------
+                                    Total: $280.82
+============= THANK YOU! ===============

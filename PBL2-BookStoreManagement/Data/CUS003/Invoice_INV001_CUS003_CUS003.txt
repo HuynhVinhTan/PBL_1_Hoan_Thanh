@@ -1,0 +1,16 @@
+========== BOOK STORE INVOICE ==========
+Invoice ID   : INV001_CUS003
+Customer ID  : CUS003
+Customer Name: ptc88
+Phone Number : 0901122334
+Email        : ptc88@example.com
+Address      : 78 Hoang Van Thu
+Date Created : 10/06/2025
+----------------------------------------
+Item                                                           Quantity           Price
+Patterns of Enterprise Application Architecture Vol.2            1               $66.86
+Structure and Interpretation of Computer Programs Vol.3          1               $57.70
+The Art of Computer Programming Vol.3                            1              $184.08
+----------------------------------------
+                                    Total: $308.64
+============= THANK YOU! ===============

@@ -244,6 +244,27 @@ namespace PBL2_BookStoreManagement.DAL
             return invoices;
         }
 
+        public List<Invoice> get_Total_Invoice(int type)
+        {
+            List<Invoice> invoices = new List<Invoice>();
+
+            // Đọc hóa đơn (invoice tổng quan)
+            List<string[]> invoiceData = DataProvider.Instance.ReadCsv(Path.Combine(filePath, "Invoice.csv")); // vẫn giữ cũ
+                                                                                                               // Đọc chi tiết hóa đơn
+            List<string[]> itemData = DataProvider.Instance.ReadCsv(Path.Combine(filePath, "Invoice_Info.csv")); // theo format mới
+
+            foreach (var inv in invoiceData)
+            {
+                string invoiceID = inv[0];
+                string customerID = inv[1];
+                DateTime dateCreated = DateTime.Parse(inv[2]);
+                double totalAmount = double.Parse(inv[3]);
+                invoices.Add(new Invoice(invoiceID, customerID, dateCreated, null, totalAmount));
+            }
+
+            return invoices;
+        }
+
         public double get_Total_Spending(string userID) { 
             string folderPath = GetOrCreateUserFolder(userID);
             //check xem folder da ton tai chua

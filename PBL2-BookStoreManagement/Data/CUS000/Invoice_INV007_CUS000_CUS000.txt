@@ -1,0 +1,16 @@
+========== BOOK STORE INVOICE ==========
+Invoice ID   : INV007_CUS000
+Customer ID  : CUS000
+Customer Name: vnchien
+Phone Number : 0973581590
+Email        : vonhuchien@gmail.com
+Address      : Da Nang
+Date Created : 10/06/2025
+----------------------------------------
+Item                                             Quantity           Price
+Artificial Intelligence A Modern Approach          1               $92.50
+The Clean Coder                                    1               $33.50
+Introduction to the Theory of Computation          1               $72.00
+----------------------------------------
+                                    Total: $198.00
+============= THANK YOU! ===============

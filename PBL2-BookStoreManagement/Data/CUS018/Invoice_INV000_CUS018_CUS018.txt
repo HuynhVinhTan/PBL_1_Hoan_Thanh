@@ -1,0 +1,16 @@
+========== BOOK STORE INVOICE ==========
+Invoice ID   : INV000_CUS018
+Customer ID  : CUS018
+Customer Name: lmtam
+Phone Number : 0959595959
+Email        : lmtam@example.com
+Address      : 87 Mac Dinh Chi
+Date Created : 11/06/2025
+----------------------------------------
+Item                                             Quantity           Price
+Artificial Intelligence A Modern Approach          1               $92.50
+The Art of Computer Programming Vol.3              1              $184.08
+Refactoring UI Vol.3                               2               $77.22
+----------------------------------------
+                                    Total: $353.80
+============= THANK YOU! ===============

@@ -2,17 +2,21 @@
 using PBL2_BookStoreManagement.DTO;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PBL2_BookStoreManagement.View
 {
-    public partial class fCus_Invoice : Form
+    public partial class fAdmin_Invoices: Form
     {
         private List<Invoice> originalInvoices;
 
-        public fCus_Invoice()
+        public fAdmin_Invoices()
         {
             InitializeComponent();
             Load_Invoice();
@@ -22,7 +26,7 @@ namespace PBL2_BookStoreManagement.View
 
         private void Load_Invoice()
         {
-            originalInvoices = BUS_Invoice.Instance.GetInvoice(Session.Cur_cus.Cus_ID);
+            originalInvoices = BUS_Invoice.Instance.GetInvoice(0);
             dtgv_Invoice.DataSource = originalInvoices;
 
             // Nếu cột DETAIL chưa có thì thêm mới
@@ -130,7 +134,8 @@ namespace PBL2_BookStoreManagement.View
             if (e.RowIndex >= 0 && dtgv_Invoice.Columns[e.ColumnIndex].Name == "DETAIL")
             {
                 string invoiceID = dtgv_Invoice.Rows[e.RowIndex].Cells["InvoiceID"].Value.ToString();
-                string invoicetext = BUS_Invoice.Instance.GetInvoiceText(Session.Cur_cus.Cus_ID, invoiceID);
+                string cus_Id = dtgv_Invoice.Rows[e.RowIndex].Cells["CustomerID"].Value.ToString();
+                string invoicetext = BUS_Invoice.Instance.GetInvoiceText(cus_Id, invoiceID);
 
                 Form frm = new Form();
                 frm.Text = "Hóa đơn của bạn";

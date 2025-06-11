@@ -63,6 +63,10 @@ class BUS_Invoice
     {
         return DAL_Invoice.Instance.get_Total_Invoice();
     }
+    public List<Invoice> GetInvoice(int type)
+    {
+        return DAL_Invoice.Instance.get_Total_Invoice(type);
+    }
 
     public List<Cart> GetSoldBook()
     {

@@ -1,6 +1,6 @@
 cus_id,cus_name,cus_phone,cus_email,cus_address,cus_pass
-CUS000,chienvonhu,vnchien,0973581590,vonhuchien@gmail.com,Da Nang,chien1
-CUS001,nguyenvana,nvana,0912345671,nvana@example.com,12 Le Loi,	
+CUS000,chienvonhu,vnchien,0973581590,vonhuchien@gmail.com,123 Duong Khue Da Nang,chien1
+CUS001,nguyenvana,nvana,0912345671,nvana@gmail.com,12 Le Loi,nvana2
 CUS002,tranthib,ttb123,0987654321,ttb123@example.com,45 Nguyen Trai,ttbpass
 CUS003,phamthic,ptc88,0901122334,ptc88@example.com,78 Hoang Van Thu,ptcpass
 CUS004,leducthinh,ldthinh,0933221144,ldthinh@example.com,23 Hai Ba Trung,thinh123

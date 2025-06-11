@@ -1,0 +1,16 @@
+========== BOOK STORE INVOICE ==========
+Invoice ID   : INV006_CUS000
+Customer ID  : CUS000
+Customer Name: vnchien
+Phone Number : 0973581590
+Email        : vonhuchien@gmail.com
+Address      : Da Nang
+Date Created : 08/06/2025
+----------------------------------------
+Item                                                   Quantity           Price
+Eloquent JavaScript                                      1               $25.99
+The Clean Coder                                          1               $33.50
+Patterns of Enterprise Application Architecture          1               $58.00
+----------------------------------------
+                                    Total: $117.49
+============= THANK YOU! ===============

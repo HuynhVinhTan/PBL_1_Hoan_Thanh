@@ -36,15 +36,13 @@
             this.lbl_welcome = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.btn_Logout = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -86,11 +84,10 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(153)))), ((int)(((byte)(248)))));
-            this.panel2.Controls.Add(this.pictureBox2);
+            this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.lbl_welcome);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.btn_Logout);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -138,20 +135,6 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
-            // btn_Logout
-            // 
-            this.btn_Logout.BackColor = System.Drawing.Color.White;
-            this.btn_Logout.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btn_Logout.ForeColor = System.Drawing.Color.Black;
-            this.btn_Logout.Location = new System.Drawing.Point(30, 585);
-            this.btn_Logout.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_Logout.Name = "btn_Logout";
-            this.btn_Logout.Size = new System.Drawing.Size(105, 37);
-            this.btn_Logout.TabIndex = 2;
-            this.btn_Logout.Text = "Log Out";
-            this.btn_Logout.UseVisualStyleBackColor = false;
-            this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.White;
@@ -197,15 +180,19 @@
             this.panel3.Size = new System.Drawing.Size(1280, 648);
             this.panel3.TabIndex = 2;
             // 
-            // pictureBox2
+            // button4
             // 
-            this.pictureBox2.Image = global::PBL2_BookStoreManagement.Properties.Resources.icons8_logout_30;
-            this.pictureBox2.Location = new System.Drawing.Point(66, 550);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
+            this.button4.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold);
+            this.button4.ForeColor = System.Drawing.Color.Black;
+            this.button4.Image = global::PBL2_BookStoreManagement.Properties.Resources.icons8_logout_30;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(11, 584);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(154, 52);
+            this.button4.TabIndex = 8;
+            this.button4.Text = "   Logout";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.btn_Logout_Click);
             // 
             // fCustomer
             // 
@@ -225,7 +212,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -242,7 +228,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lbl_welcome;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btn_Logout;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button button4;
     }
 }
